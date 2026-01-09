@@ -1,0 +1,67 @@
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 160px;
+    padding: 20px;
+}
+.shortInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.textBlock1 {
+    max-width: 800px;
+    text-align: center;
+}
+.textBlock1 h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: #CDD5DD;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.about1 {
+    width: 1352px;
+    height: 730px;
+    object-fit: cover;
+}
+.about2, .about3 {
+    width: 890.6px;
+    object-fit: cover;
+}
+.imageBlock img {
+    border-radius: 10px;
+}
+.textBlock1 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.textBlock1 p, .textBlock p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #3D4155;
+}
+.detailedInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.detailedInfo.reverse {
+    flex-direction: row-reverse;
+}
+.textBlock h2 {
+    font-size: 44px;
+    font-weight: 400;
+    color: #0C122A;
+    text-transform: uppercase;
+}
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

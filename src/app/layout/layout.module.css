@@ -54,6 +54,10 @@
     font-family: "GT Walsheim Pro";
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
