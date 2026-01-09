@@ -7,7 +7,7 @@ export function Header() {
     return <header className={styles.header}>
         <nav className={styles.navigation}>
             <Link to={"#"}>Каталог</Link>
-            <Link to={"#"}>Про нас</Link>
+            <Link to={"/about"}>Про нас</Link>
             <Link to={"#"}>Контакти</Link>
         </nav>
         <div className={styles.logoContainer}>
