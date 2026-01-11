@@ -1,0 +1,88 @@
+.footer {
+    position: relative;
+    width: 100vw;
+    background-color: #CDD5DD;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    padding-bottom: 50px;
+}
+.containerInformation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.footerBg {
+    position: absolute;
+    z-index: 0;
+}
+.footerEllipse {
+    fill: #FFFFFF;
+    fill-opacity: 1;
+}
+.information {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin-top: 30px;
+}
+.infoBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+.infoNum {
+    font-weight: 700;
+    font-size: 44px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.infoText {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+}
+.logo {
+    width: 50vw;
+    align-self: center;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+.containerLinks {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+.containerLinks a {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0C122A;
+}
+.containerCopyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.containerCopyright hr {
+    width: 93vw;
+    border: 1px solid #F4F4F4;
+}
+.containerCopyright p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #9EA0AA;
+}
