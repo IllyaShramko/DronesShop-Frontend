@@ -15,13 +15,16 @@
     align-items: center;
     width: 100%;
 }
-.footerBg {
+.semiCircle {
     position: absolute;
+    top: -17vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130vw;
+    height: 40vh;
+    background-color: #FFFFFF;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
     z-index: 0;
-}
-.footerEllipse {
-    fill: #FFFFFF;
-    fill-opacity: 1;
 }
 .information {
     position: relative;
