@@ -6,9 +6,7 @@ import { Link } from "react-router-dom"
 export function Footer() {
     return <footer className={styles.footer}>
         <div className={styles.containerInformation}>
-            <svg viewBox="0 0 1440 296" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.footerBg}>
-                <ellipse cx="755" cy="-122.023" rx="886.497" ry="417.628" transform="rotate(-180 740 -122)" fill="white" className={styles.footerEllipse}/>
-            </svg>
+            <div className={styles.semiCircle}></div>
             <div className={styles.information}>
                 <div className={styles.infoBlock}>
                     <h3 className={styles.infoNum}>0</h3>
