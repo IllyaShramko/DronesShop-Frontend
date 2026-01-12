@@ -26,7 +26,7 @@ export function Footer() {
         <div className={styles.wrapper}>
             <div className={styles.containerLinks}>
                 <Link to={"#"}>Каталог</Link>
-                <Link to={"#"}>Про нас</Link>
+                <Link to={"/about"}>Про нас</Link>
                 <Link to={"#"}>Контакти</Link>
                 <Link to={"#"}>Кошик</Link>
                 <Link to={"#"}>Кабінет</Link>
