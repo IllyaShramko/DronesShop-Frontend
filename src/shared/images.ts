@@ -3,6 +3,7 @@ import About2 from "./../assets/images/about2.jpg"
 import About3 from "./../assets/images/about3.jpg"
 import Logo from "./../assets/images/logo.png"
 import bigLogo from "./../assets/images/bigLogo.png"
+import Error from "./../assets/images/error.png"
 export const IMAGES = {
-    About1, About2, About3, Logo, bigLogo
+    About1, About2, About3, Logo, bigLogo, Error
 }
