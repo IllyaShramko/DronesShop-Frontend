@@ -21,5 +21,6 @@ export function Header() {
                 <ICONS.User/>
             </div>
         </div>
+        <div className={styles.background}></div>
     </header>
 }

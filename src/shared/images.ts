@@ -4,6 +4,8 @@ import About3 from "./../assets/images/about3.jpg"
 import Logo from "./../assets/images/logo.png"
 import bigLogo from "./../assets/images/bigLogo.png"
 import Error from "./../assets/images/error.png"
+import DroneMain from "./../assets/images/droneMain.png"
 export const IMAGES = {
-    About1, About2, About3, Logo, bigLogo, Error
+    About1, About2, About3, Logo, bigLogo, Error,
+    DroneMain
 }

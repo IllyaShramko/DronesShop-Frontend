@@ -1,0 +1,119 @@
+.homePage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+.bottomHeader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    overflow-x: hidden;
+    padding-right: 100px;
+    width: 100vw;
+    height: 50vh;
+}
+.bottomBackground {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110vw;
+    height: 50vh;
+    background-color: #FFFFFF;
+    border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+    z-index: -1;
+}
+.headerHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 200px;
+}
+.imageContainer {
+    position: absolute;
+    transform: translateY(-30px);
+}
+.imageContainer img {
+    width: 811px;
+    height: 811px;
+    rotate: calc(11.6deg);
+}
+.texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.texts h1 {
+    font-size: 61px;
+    font-weight: 900;
+    color: white;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+}
+.btnContainer button{
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 40px;
+    background-color: #0C122A;
+    border-radius: 45px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+/*  */
+.mainHome {
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+.headerMain  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.headerMain h1 {
+    font-weight: 900;
+    font-size: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CDD5DD;
+    letter-spacing: 2px;
+}
+.headerMain div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerMain button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 18px 40px;
+    border-radius: 45px;
+    border: #0C122A 1.5px solid;
+    background-color: white;
+    cursor: pointer;
+}
+.headerMain button p {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0C122A;
+}

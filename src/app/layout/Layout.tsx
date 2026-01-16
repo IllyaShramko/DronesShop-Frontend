@@ -8,10 +8,12 @@ export function Layout() {
     return (
         <div className={styles.container}>
             <Header />
-            <Main>
-                <Outlet />
-            </Main>
-            <Footer />
+            <div>
+                <Main>
+                    <Outlet />
+                </Main>
+                <Footer />
+            </div>
         </div>
     )
 }
