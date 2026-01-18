@@ -1,14 +1,18 @@
 .header {
-    position: relative;
+    position: fixed;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr;
     align-items: center;
-    margin: 0 40px;
     border: #E4E4E7 1px solid;
     border-radius: 62px;
     padding: 10px 40px;
     height: 64px;
     overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95vw;
+    backdrop-filter: blur(64px);
+    z-index: 10;
 }
 .background {
     position: absolute;
