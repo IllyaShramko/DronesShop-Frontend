@@ -43,13 +43,13 @@ export function HomePage() {
                 
                     <p>Читати більше</p>
                     <ICONS.RightArrowBlack className={styles.arrowRight}/>
-                                <div className={styles.newSection}>
+                    <div className={styles.newSection}>
                     <h2 className={styles.newTitle}>НОВЕ НА САЙТІ</h2>
 
                     
                     <div className={styles.cards}>
 
-                      
+                    
                         <div className={`${styles.card} ${styles.cardGold}`}>
                         <img src="/images/drone1.jpg" className={styles.cardBg} />
                         <img src="/images/droneMain.png" className={styles.cardDrone} />
@@ -96,7 +96,7 @@ export function HomePage() {
                             </div>
                         </div>
                         </div>
-
+                    
                     </div>
                     </div>
 
