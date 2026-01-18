@@ -117,3 +117,159 @@
     text-transform: uppercase;
     color: #0C122A;
 }
+
+
+
+
+.newTitle {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #cdd5dd;
+}
+.newSection {
+  width: 100%;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.cards {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+
+
+
+
+
+
+.card {
+  width: 360px;
+  height: 260px;
+
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.cardDrone {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 26px 24px 22px;
+  color: white;
+}
+
+.cardGold .cardContent {
+  background: linear-gradient(
+    to top,
+    #d9a441 0%,
+    #e6bb63 45%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+.cardDark .cardContent {
+  background: linear-gradient(
+    to top,
+    #1f2a25 0%,
+    #3d4441 50%,
+    rgba(255,255,255,0.15) 100%
+  );
+}
+
+.cardBlue .cardContent {
+  background: linear-gradient(
+    to top,
+    #4f97a6 0%,
+    #86c1cc 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+}
+
+.cardGold button {
+  border-color: white;
+}
+
+.cardDark button {
+  border-color: #cfd6d2;
+}
+
+.cardBlue button {
+  border-color: #e6f4f7;
+}
+
+
+
+
+.cardContent h3 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+  
+}
+
+.cardContent p {
+  margin: 6px 0 22px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+
+.cardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardBottom span {
+  font-size: 12px;
+}
+
+.cardBottom button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
