@@ -5,36 +5,33 @@ import { Link } from "react-router-dom"
 
 export function Footer() {
     return <footer className={styles.footer}>
-        <div className={styles.containerInformation}>
-            <div className={styles.semiCircle}></div>
-            <div className={styles.information}>
-                <div className={styles.infoBlock}>
-                    <h3 className={styles.infoNum}>0</h3>
-                    <p className={styles.infoText}>Успішних відправок</p>
-                </div>
-                <div className={styles.infoBlock}>
-                    <h3 className={styles.infoNum}>0</h3>
-                    <p className={styles.infoText}>Задоволених клієнтів</p>
-                </div>
-                <div className={styles.infoBlock}>
-                    <h3 className={styles.infoNum}>24/7</h3>
-                    <p className={styles.infoText}>Підтримка клієнтів</p>
-                </div>
-            </div>
-        </div>
-        <img src={IMAGES.bigLogo} className={styles.logo} />
-        <div className={styles.wrapper}>
-            <div className={styles.containerLinks}>
-                <Link to={"#"}>Каталог</Link>
-                <Link to={"/about"}>Про нас</Link>
-                <Link to={"#"}>Контакти</Link>
-                <Link to={"#"}>Кошик</Link>
-                <Link to={"#"}>Кабінет</Link>
-            </div>
-            <div className={styles.containerCopyright}>
+			<div className = {styles.information}>
+				<div className = {styles.infoBlock}>
+					<h4>1K+</h4>
+					<p>Успішних відправок</p>
+				</div>
+				<div className = {styles.infoBlock}>
+					<h4>1.5K+</h4>
+					<p>Задоволених клієнтів</p>
+				</div>
+				<div className = {styles.infoBlock}>
+					<h4>24/7</h4>
+					<p>Підтримка клієнтів</p>
+				</div>
+			</div>
+
+			<img src = {IMAGES.bigLogo} alt="DRONES" />
+
+			<div className = {styles.links}>
+				<Link to = {"#"}>Каталог</Link>
+				<Link to = {"/about"}>Про нас</Link>
+				<Link to = {"/contacts"}>Контакти</Link>
+				<Link to = {"/cart"}>Кошик</Link>
+				<Link to = {"/cabinet"}>Кабінет</Link>
+			</div>
+            <div className = {styles.footerBottom}>
                 <hr />
-                <p>© 2024 Drones Shop. Всі права захищені.</p>
+			    <p >© 2025 Drones Всі права захищені.</p>
             </div>
-        </div>
-    </footer>
+		</footer>
 }
