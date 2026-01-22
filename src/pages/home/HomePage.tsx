@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import styles from "./home.module.css"
 import { IMAGES } from "../../shared/images";
 import { ICONS } from "../../shared/icons";
-
+import { NewProducts } from "../../components/new-list" 
+import { PopularProducts } from "../../components/popular-list"
 export function HomePage() {
     useEffect(() => {
         document.body.style.backgroundColor = '#CDD5DD';
@@ -45,6 +46,8 @@ export function HomePage() {
                     <ICONS.RightArrowBlack className={styles.arrowRight}/>
                 </button>
             </div>
+            <NewProducts></NewProducts>
+            <PopularProducts></PopularProducts>
         </div>
     </div>
 }

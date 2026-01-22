@@ -1,0 +1,80 @@
+.popularCatalog {
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
+    align-items: center;
+    margin-top: 100px;
+}
+.header h1 {
+    font-weight: 900;
+    font-size: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CDD5DD;
+    letter-spacing: 2px;
+}
+.cards {
+    display: flex;
+    gap: 24px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 322px;
+    height: 363px;
+    padding: 14px;
+}
+.img {
+    width: 100%;
+    height: 223px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img img {
+    position: absolute;
+    width: 80%;
+}
+.information {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.information h2 {
+    font-weight: 500;
+    font-size: 24px;
+}
+.price {
+    display: flex;
+    gap: 16px;
+}
+.price p {
+    font-weight: 500;
+    font-size: 14px;
+}
+.priceDiscounted {
+    text-decoration: line-through;
+}
+.priceDiscount {
+    color: #B62D11;
+}
+.buttonDiv button {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    gap: 16px;
+    border-radius: 100px;
+    border: none;
+    background-color: #0C122A;
+}
+.buttonDiv button p {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
