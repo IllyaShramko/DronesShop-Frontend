@@ -15,7 +15,7 @@ export function useGetNewProducts(): UseGetNewProductsContract {
 
     async function getNewProducts() {
         try {
-            const response = await fetch(`${API_URL}/products/new`)
+            const response = await fetch(`${API_URL}/products/suggestions?new=true&limit=4`)
 
             if (response.ok) {
                 const data: Product[] = await response.json()

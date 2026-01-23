@@ -15,7 +15,7 @@ export function useGetPopularProducts(): UseGetPopularProductsContract {
 
     async function getPopularProducts() {
         try {
-            const response = await fetch(`${API_URL}/products/popular`)
+            const response = await fetch(`${API_URL}/products/suggestions?popular=true&limit=3`)
 
             if (response.ok) {
                 const data: Product[] = await response.json()
