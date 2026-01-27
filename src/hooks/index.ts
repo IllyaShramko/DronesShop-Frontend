@@ -1,2 +1,2 @@
-export { useGetNewProducts } from "./get-new-product";
-export { useGetPopularProducts } from "./get-popular-product";
+export { useGetNewProducts } from "./use-get-new-product";
+export { useGetPopularProducts } from "./use-get-popular-product";
