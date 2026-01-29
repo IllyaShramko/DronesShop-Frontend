@@ -3,7 +3,7 @@ import { Product } from "../shared/types"
 import { API_URL } from "../shared/api"
 
 interface UseGetProductsContract {
-    products: Product[] | null
+    products: Product[]
     isLoading: boolean
     error: string | null
 }
@@ -11,33 +11,29 @@ interface UseGetProductsContract {
 export function useGetProducts(): UseGetProductsContract {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
-    const [products, setProducts] = useState<Product[] | null>(null)
+    const [products, setProducts] = useState<Product[]>([])
 
-    async function getProducts() {
-        try {
-            const response = await fetch(`${API_URL}/products`)
-
-            if (response.ok) {
+    useEffect( () => {
+        async function getProducts() {
+            try {
+                setIsLoading(true)
+                const response = await fetch(`${API_URL}/products`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                })
                 const data: Product[] = await response.json()
                 setProducts(data)
-            } else {
-                if (response.status === 404) {
-                    setProducts(null)
+            } catch (error) {
+                console.error(error)
+                if (error instanceof Error) {
+                    setError(error.message)
                 }
+            } finally {
+                setIsLoading(false)
             }
-
-            setIsLoading(true)
-        } catch (error) {
-            console.error(error)
-            if (error instanceof Error) {
-                setError(error.message)
-            }
-        } finally {
-            setIsLoading(false)
         }
-    }
-
-    useEffect(() => {
         getProducts()
     }, [])
 

@@ -1,10 +1,39 @@
+import { useEffect, useState } from "react";
 import { IMAGES } from "../../shared/images";
-import styles from "./not-found.module.css";
+import styles from "./catalog.module.css";
+import { useGetProducts } from "../../hooks";
+
 
 export function CatalogPage() {
+    const [selectedCategory, setSelectedCategory] = useState<"All" | number>("All")
+    const {products, isLoading, error} = useGetProducts()
+
+    const [filteredProducts, setFilteredProducts] = useState(products)
+
+    useEffect(() => {
+        if (isNaN(+selectedCategory)) {
+            setFilteredProducts(products)
+            return;
+        }
+        const newFilteredProducts = products.filter(product => {
+            return product.categoryId === +selectedCategory
+        })
+        setFilteredProducts(newFilteredProducts)
+
+    }, [selectedCategory, products])
+
+    if (isLoading) {
+        return <div>Loading.....</div>
+    }
+    if (error) {
+        return <div>Error occured. {error}</div>
+    }
     return (
         <div className={styles.page}>
-            <p className={styles.text}>Каталог</p>
+            <p className={styles.title}>Каталог</p>
+            <div className={styles.content}>
+
+            </div>
         </div>
     );
 }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 export function Header() {
     return <header className={styles.header}>
         <nav className={styles.navigation}>
-            <Link to={"#"}>Каталог</Link>
+            <Link to={"/catalog"}>Каталог</Link>
             <Link to={"/about"}>Про нас</Link>
             <Link to={"#"}>Контакти</Link>
         </nav>
