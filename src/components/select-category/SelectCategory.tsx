@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './select-category.module.css'
 import { SelectCategoryProps } from './select-category.types'
 import { Category } from '../../shared/types'
@@ -17,13 +16,13 @@ export function SelectCategory({selectedCategory, setSelectedCategory}: SelectCa
     
     return (
         <div className={styles.selectCategories}>
-            <label><input
+            <label className={styles.selectedCategory}><input
                 value={"All"}
                 type="radio"
                 onChange={event => {setSelectedCategory("All")}}
                 checked={selectedCategory === "All"}
                 />
-                All
+                Всі
             </label>
             {categories.map((category: Category) => {
                 return (

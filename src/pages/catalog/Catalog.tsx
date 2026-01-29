@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IMAGES } from "../../shared/images";
 import styles from "./catalog.module.css";
 import { useGetProducts } from "../../hooks";
+import { SelectCategory, ProductList } from "../../components";
 
 
 export function CatalogPage() {
@@ -32,8 +33,9 @@ export function CatalogPage() {
         <div className={styles.page}>
             <p className={styles.title}>Каталог</p>
             <div className={styles.content}>
-
-            </div>
+                <SelectCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
+                <ProductList filteredProducts={filteredProducts}/>
+            </div>  
         </div>
     );
 }

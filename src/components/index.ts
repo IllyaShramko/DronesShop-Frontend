@@ -1,3 +1,4 @@
 export { NewProducts } from "./new-list"
 export { PopularProducts } from "./popular-list"
-// export { ProductsList } from "./products-list"
+export { SelectCategory } from "./select-category"
+export { ProductList } from "./products-list"

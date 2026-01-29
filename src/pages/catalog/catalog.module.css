@@ -11,3 +11,8 @@
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

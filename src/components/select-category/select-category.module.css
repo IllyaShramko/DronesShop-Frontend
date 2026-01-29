@@ -1,0 +1,22 @@
+.selectCategories {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 20px;
+}
+.selectedCategory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px #E7E7EA solid;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.selectedCategory input {
+    display: none;
+}
+.selectedCategory:has(input:checked) {
+    background-color: #F4F4F4;
+}

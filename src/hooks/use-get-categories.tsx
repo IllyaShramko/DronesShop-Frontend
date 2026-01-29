@@ -13,11 +13,12 @@ export function useGetCategories(): UseGetCategoriesContract {
     const [error, setError] = useState<string | null>(null)
     const [categories, setCategories] = useState<Category[]>([])
     
-    useEffect( () => {
+    useEffect(() => {
         async function getCategories() {
             try {
                 setIsLoading(true)
-                const response = await fetch(`${API_URL}/categories`, {
+                console.log("123")
+                const response = await fetch(`${API_URL}/categories/`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json"
