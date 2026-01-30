@@ -17,7 +17,7 @@ export function ProductCard(props: ProductCardProps) {
                     <p className={styles.priceDiscount}>{product.price * (1 - product.discount / 100)} ₴</p>
                 </div>
                 : <div className={styles.price}>
-                    <p>29 950 ₴</p>
+                    <p>{product.price} ₴</p>
                 </div>
             }
         </div>

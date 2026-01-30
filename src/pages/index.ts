@@ -1,0 +1,5 @@
+export { HomePage } from "./home"
+export { AboutPage } from "./about"
+export { CatalogPage } from "./catalog"
+export { NotFoundPage } from "./not-found"
+export { ProductPage } from "./product"

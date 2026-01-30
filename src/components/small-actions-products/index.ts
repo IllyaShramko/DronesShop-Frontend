@@ -1,0 +1,1 @@
+export { SmallActionsProduct } from "./SmallActions"
