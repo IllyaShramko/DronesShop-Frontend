@@ -35,6 +35,7 @@ export function ProductPage() {
         navigate('/products')
         return null;
     }
+    console.log(product)
     return <div className={styles.page}>
         <div className={styles.header}>
             <div className={styles.texts}>
@@ -44,11 +45,11 @@ export function ProductPage() {
             <div className={styles.imageContainer}>
                 <img src={product.previewPhoto} className={styles.image}/>
             </div>
-            <SmallActionsProduct product={product}></SmallActionsProduct>
             <div className={styles.bottomBackground}></div>
         </div>
         <div className={styles.main}>
 
         </div>
+        <SmallActionsProduct product={product}></SmallActionsProduct>
     </div>
 }

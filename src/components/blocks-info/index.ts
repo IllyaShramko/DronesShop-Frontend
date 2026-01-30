@@ -1,3 +1,1 @@
-// export { BlocksInfo } from "./BlocksInfo";
-
-export {}
+export { BlocksInfo } from "./BlocksInfo";

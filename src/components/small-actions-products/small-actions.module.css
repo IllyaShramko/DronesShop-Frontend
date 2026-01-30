@@ -1,0 +1,87 @@
+.mainBlock {
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
+    width: 232px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 14px;
+    gap: 24px;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    z-index: 5;
+}
+.textsProps {
+    display: flex;
+    gap: 8px;
+    height: 50px;
+}
+.actionsInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.actionsInfo h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0C122A;
+}
+.price {
+    display: flex;
+    gap: 8px;
+}
+.price p {
+    font-weight: 500;
+    font-size: 14px;
+}
+.priceDiscounted {
+    text-decoration: line-through;
+}
+.priceDiscount {
+    color: #B62D11;
+}
+.smallImageContainer img {
+    width: 50px;
+    height: 50px;
+}
+.btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btnContainer button {
+    cursor: pointer;
+}
+.purchasesContainer {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px #0C122A solid;
+}
+.purchasesImg {
+    width: 18px;
+}
+.goToBuyContainer {
+    width: 144px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    background: #0A122C;
+    border-radius: 100px;
+}
+.goToBuyContainer p {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.arrowRight {
+    width: 16px;
+}

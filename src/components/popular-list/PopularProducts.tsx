@@ -1,6 +1,7 @@
 import styles from "./popular-list.module.css";
 import { ICONS } from "../../shared/icons";
 import { IMAGES } from "../../shared/images";
+import { Link, useNavigate } from "react-router-dom";
 
 export function PopularProducts() {
     
@@ -56,10 +57,10 @@ export function PopularProducts() {
             </div>
         </div>
         <div className={styles.buttonDiv}>
-            <button>
+            <Link to={"/catalog"} className={styles.btn}>
                 <p>Дивитись всі</p>
                 <ICONS.RightArrowWhite/>
-            </button>
+            </Link>
         </div>
     </div>
 }

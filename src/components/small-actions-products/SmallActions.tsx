@@ -29,7 +29,7 @@ export function SmallActionsProduct({product}: SmallActionsProductProps) {
             </button>
             <button className={styles.goToBuyContainer}>
                 <p>Замовити</p>
-                <ICONS.RightArrowWhite/>
+                <ICONS.RightArrowWhite className={styles.arrowRight}/>
             </button>
         </div>
     </div>

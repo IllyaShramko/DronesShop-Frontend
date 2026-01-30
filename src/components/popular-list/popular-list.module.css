@@ -60,7 +60,7 @@
 .priceDiscount {
     color: #B62D11;
 }
-.buttonDiv button {
+.btn {
     display: flex;
     align-items: center;
     padding: 18px 40px;
@@ -69,7 +69,7 @@
     border: none;
     background-color: #0C122A;
 }
-.buttonDiv button p {
+.btn p {
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1.5px;
