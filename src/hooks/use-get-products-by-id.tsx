@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Product } from "../shared/types"
+import { FullProduct, Product } from "../shared/types"
 import { API_URL } from "../shared/api"
 
 interface UseGetProductByIdParams{
@@ -7,20 +7,20 @@ interface UseGetProductByIdParams{
 }
 
 interface UseGetProductByIdContract{
-    product: Product | null
+    product: FullProduct | null
     isLoading: boolean
     error:  string | null
 }
 export function useGetProductById({id}: UseGetProductByIdParams): UseGetProductByIdContract {
     const [isLoading, setIsLoading] = useState<boolean>(false)  
     const [error, setError] = useState<string | null>(null)
-    const [product, setProduct] = useState<null | Product>(null)
+    const [product, setProduct] = useState<null | FullProduct>(null)
 
     async function getProductById({id}: UseGetProductByIdParams) {
         try {
             const response = await fetch(`${API_URL}/products/${id}`) 
             if(response.ok){
-                const data: Product  = await response.json()
+                const data: FullProduct  = await response.json()
                 setProduct(data)
             } else{
                 if (response.status === 404){
