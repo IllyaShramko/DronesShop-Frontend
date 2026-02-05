@@ -2,7 +2,7 @@ import styles from "./product.module.css"
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks";
 import { useEffect } from "react";
-import { SmallActionsProduct } from "../../components";
+import { SimilarProducts, SmallActionsProduct } from "../../components";
 
 
 export function ProductPage() {
@@ -49,6 +49,7 @@ export function ProductPage() {
         </div>
         <div className={styles.main}>
 
+            <SimilarProducts id={product.id}/>
         </div>
         <SmallActionsProduct product={product}></SmallActionsProduct>
     </div>

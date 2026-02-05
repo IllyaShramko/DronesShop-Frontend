@@ -1,0 +1,41 @@
+.similarProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 85px;
+    align-items: center;
+    margin-top: 100px;
+}
+.products {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+.header h1 {
+    font-weight: 900;
+    font-size: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CDD5DD;
+    letter-spacing: 2px;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    padding: 18px 40px;
+    gap: 16px;
+    border-radius: 100px;
+    border: none;
+    background-color: #0C122A;
+}
+.btn p {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}

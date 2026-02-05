@@ -1,1 +1,1 @@
-export {}
+export { ProductCard } from "./ProductCard"
