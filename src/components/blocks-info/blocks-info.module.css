@@ -1,0 +1,91 @@
+.blocksInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 64px;         
+  padding: 40px 0;
+}
+
+.infoItem {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 0 16px;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f172a;
+  text-align: center;
+}
+
+.description {
+  max-width: 720px;
+  text-align: center;
+  color: #334155;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+.description p {
+  margin: 8px 0;
+}
+
+.paramsBox {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.mediaBox {
+  width: 100%;
+  max-width: 860px;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.media {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+.v1 .mediaBox {
+  display: none;
+}
+
+.v3 {
+  align-items: stretch;
+}
+
+.v3 .texts {
+  align-items: flex-start;
+}
+
+.v3 .title,
+.v3 .description {
+  text-align: left;
+}
+
+

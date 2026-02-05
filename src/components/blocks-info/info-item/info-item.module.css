@@ -1,0 +1,115 @@
+.infoBlock {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.textBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.description {
+  max-width: 760px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.description p {
+  margin: 8px 0;
+}
+
+.paramsBox {
+  width: 100%;
+  max-width: 760px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 20px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.mediaBox {
+  width: 100%;
+  max-width: 860px;
+
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.media {
+  width: 100%;
+  height: 420px;
+  display: block;
+  border: 0;
+  object-fit: cover;
+}
+
+.split {
+  width: 100%;
+  display: flex;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+}
+
+
+
+.v4 .textBlock {
+  align-items:end;
+}
+.v4 .title,
+.v4 .description {
+  text-align: left;
+}
+
+.v4r .split {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.v4r .textBlock {
+  align-items: flex-start;
+}
+.v4r .title,
+.v4r .description {
+  text-align: left;
+}
+
+.specs {
+  width: 100%;
+  max-width: 860px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+
+
+
+
+

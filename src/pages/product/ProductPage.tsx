@@ -2,7 +2,8 @@ import styles from "./product.module.css"
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks";
 import { useEffect } from "react";
-import { SmallActionsProduct } from "../../components";
+import { SmallActionsProduct,BlocksInfo } from "../../components";
+
 
 
 export function ProductPage() {
@@ -48,7 +49,7 @@ export function ProductPage() {
             <div className={styles.bottomBackground}></div>
         </div>
         <div className={styles.main}>
-
+            <BlocksInfo blocksInfo={product.blocksInfo}></BlocksInfo>
         </div>
         <SmallActionsProduct product={product}></SmallActionsProduct>
     </div>

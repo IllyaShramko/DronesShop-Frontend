@@ -50,3 +50,8 @@
     border-radius: 50% 50% 0 0 / 50% 50% 0 0;
     z-index: -1;
 }
+.main{
+    position: relative;
+    width: 100%;
+    background-color: #FFFFFF;
+}
