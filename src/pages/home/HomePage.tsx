@@ -4,6 +4,7 @@ import { IMAGES } from "../../shared/images";
 import { ICONS } from "../../shared/icons";
 import { NewProducts } from "../../components/new-list" 
 import { PopularProducts } from "../../components/popular-list"
+import { useGetPopularProducts } from "../../hooks";
 export function HomePage() {
     useEffect(() => {
         document.body.style.backgroundColor = '#CDD5DD';
@@ -11,6 +12,7 @@ export function HomePage() {
             document.body.style.backgroundColor = '#ffffff';
         };
     }, []);
+
     return <div className={styles.homePage}>
         <div className={styles.headerHome}>
             <div className={styles.texts}>

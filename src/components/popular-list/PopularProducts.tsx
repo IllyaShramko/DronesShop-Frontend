@@ -2,59 +2,25 @@ import styles from "./popular-list.module.css";
 import { ICONS } from "../../shared/icons";
 import { IMAGES } from "../../shared/images";
 import { Link, useNavigate } from "react-router-dom";
+import { PopularCard } from "./popular-card/PopularCard";
+import { useGetPopularProducts } from "../../hooks";
 
 export function PopularProducts() {
-    
+    const {products, isLoading, error} = useGetPopularProducts({limit: 4, offset: 0})
+    if (isLoading) {
+        return <div>Loading.....</div>
+    } else if (!products) {
+        return <div>No products found</div>
+    }
+    if (error) {
+        return <div>Error occured. {error}</div>
+    }
     return <div className={styles.popularCatalog}>
         <div className={styles.header}>
             <h1>Каталог</h1>
         </div>
         <div className={styles.cards}>
-            <div className={styles.card}>
-                <div className={styles.img}>
-                    <img src={IMAGES.testDrone1} />
-                </div>
-                <div className={styles.information}>
-                    <h2>DJI Mini 4K</h2>
-                    <div className={styles.price}>
-                        <p className={styles.priceDiscounted}>29 950 ₴</p>
-                        <p className={styles.priceDiscount}>29 900 ₴</p>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.card}>
-                <div className={styles.img}>
-                    <img src={IMAGES.testDrone2} />
-                </div>
-                <div className={styles.information}>
-                    <h2>DJI Mini 4K</h2>
-                    <div className={styles.price}>
-                        <p>29 950 ₴</p>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.card}>
-                <div className={styles.img}>
-                    <img src={IMAGES.testDrone3} />
-                </div>
-                <div className={styles.information}>
-                    <h2>DJI Mini 4K</h2>
-                    <div className={styles.price}>
-                        <p>29 950 ₴</p>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.card}>
-                <div className={styles.img}>
-                    <img src={IMAGES.testDrone1} />
-                </div>
-                <div className={styles.information}>
-                    <h2>DJI Mini 4K</h2>
-                    <div className={styles.price}>
-                        <p>29 950 ₴</p>
-                    </div>
-                </div>
-            </div>
+            {products.map(product => <PopularCard product={product}/>)}
         </div>
         <div className={styles.buttonDiv}>
             <Link to={"/catalog"} className={styles.btn}>

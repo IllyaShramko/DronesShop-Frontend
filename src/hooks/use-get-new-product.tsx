@@ -2,20 +2,25 @@ import { useState, useEffect } from "react"
 import { Product } from "../shared/types"
 import { API_URL } from "../shared/api"
 
+interface UseGetNewProductsParams{
+    limit: number,
+    offset: number
+}
+
 interface UseGetNewProductsContract {
     products: Product[] | null
     isLoading: boolean
     error: string | null
 }
 
-export function useGetNewProducts(): UseGetNewProductsContract {
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+export function useGetNewProducts({limit, offset}: UseGetNewProductsParams): UseGetNewProductsContract {
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)
     const [products, setProducts] = useState<Product[] | null>(null)
 
     async function getNewProducts() {
         try {
-            const response = await fetch(`${API_URL}/products/suggestions?new=true&limit=4`)
+            const response = await fetch(`${API_URL}/products/suggestions?new=true&limit=${limit ? limit : 4}`)
 
             if (response.ok) {
                 const data: Product[] = await response.json()
