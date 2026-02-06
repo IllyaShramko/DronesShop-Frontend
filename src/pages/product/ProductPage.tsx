@@ -2,7 +2,7 @@ import styles from "./product.module.css"
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks";
 import { useEffect } from "react";
-import { SimilarProducts, SmallActionsProduct } from "../../components";
+import { BlocksInfo, SimilarProducts, SmallActionsProduct } from "../../components";
 
 
 export function ProductPage() {
@@ -48,7 +48,7 @@ export function ProductPage() {
             <div className={styles.bottomBackground}></div>
         </div>
         <div className={styles.main}>
-
+            <BlocksInfo blocksInfo={product.blocksInfo}/>
             <SimilarProducts id={product.id}/>
         </div>
         <SmallActionsProduct product={product}></SmallActionsProduct>

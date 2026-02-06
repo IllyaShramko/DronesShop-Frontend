@@ -1,0 +1,17 @@
+.parameterInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.paramHead h3 {
+    color: #6D717F;
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: 3%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.paramDescription p {
+    color: #0C122A;
+}

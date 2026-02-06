@@ -7,5 +7,5 @@ export type BlockInfo = {
     typeView: string // v1, v2, v3
     priorityView: number
     media: string  
-    params?: ParameterInfo[] 
+    params: ParameterInfo[] 
 }
