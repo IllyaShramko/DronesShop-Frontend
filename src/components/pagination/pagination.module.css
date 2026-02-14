@@ -1,0 +1,31 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+.pageButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+    padding: 6px 10px;
+    transition: 0.2s;
+}
+
+.pageButton:hover {
+    opacity: 0.6;
+}
+
+.active {
+    background: #e6e6e6;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
