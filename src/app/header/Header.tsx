@@ -10,9 +10,9 @@ export function Header() {
             <Link to={"/about"}>Про нас</Link>
             <Link to={"#"}>Контакти</Link>
         </nav>
-        <div className={styles.logoContainer}>
+        <Link to={"/"} className={styles.logoContainer}>
             <img src={IMAGES.Logo} alt="" />
-        </div>
+        </Link>
         <div className={styles.actionsUser}>
             <div className={styles.actionIcon}>
                 <ICONS.Purchases/>

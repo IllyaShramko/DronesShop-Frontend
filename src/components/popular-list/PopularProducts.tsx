@@ -1,7 +1,6 @@
 import styles from "./popular-list.module.css";
 import { ICONS } from "../../shared/icons";
-import { IMAGES } from "../../shared/images";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PopularCard } from "./popular-card/PopularCard";
 import { useGetPopularProducts } from "../../hooks";
 
@@ -10,7 +9,7 @@ export function PopularProducts() {
     if (isLoading) {
         return <div>Loading.....</div>
     } else if (!products) {
-        return <div>No products found</div>
+        return <div>No products found. Try again later</div>
     }
     if (error) {
         return <div>Error occured. {error}</div>
