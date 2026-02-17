@@ -27,7 +27,6 @@ export function useGetCategories(): UseGetCategoriesContract {
                 const data: Category[] = await response.json()
                 setCategories(data)
             } catch (error) {
-                console.error(error)
                 if (error instanceof Error) {
                     setError(error.message)
                 }

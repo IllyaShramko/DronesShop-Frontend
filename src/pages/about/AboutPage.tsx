@@ -1,7 +1,15 @@
+import { useEffect } from "react"
+import { useGoHead } from "../../shared/hooks"
 import { IMAGES } from "../../shared/images"
 import styles from "./about.module.css"
 
 export function AboutPage() {
+    const goHead = useGoHead()
+
+    useEffect(() => {
+        goHead()
+    }, [])
+
     return <div className={styles.aboutPage}>
         <div className={styles.shortInfo}>
             <div className={styles.textBlock1}>

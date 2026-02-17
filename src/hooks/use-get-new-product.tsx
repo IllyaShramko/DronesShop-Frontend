@@ -33,7 +33,6 @@ export function useGetNewProducts({limit, offset}: UseGetNewProductsParams): Use
 
             setIsLoading(true)
         } catch (error) {
-            console.error(error)
             if (error instanceof Error) {
                 setError(error.message)
             }

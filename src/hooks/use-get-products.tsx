@@ -26,7 +26,6 @@ export function useGetProducts(): UseGetProductsContract {
                 const data: Product[] = await response.json()
                 setProducts(data)
             } catch (error) {
-                console.error(error)
                 if (error instanceof Error) {
                     setError(error.message)
                 }

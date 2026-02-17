@@ -1,0 +1,1 @@
+export { useGoHead } from "./use-go-head"

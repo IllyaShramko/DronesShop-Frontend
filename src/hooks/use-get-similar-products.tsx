@@ -23,7 +23,6 @@ export function useGetSimilarProducts({id}: UseGetSimilarProductsParams): UseGet
             const data: Product[]  = await response.json()
             setProducts(data)
         } catch (error) {
-            console.error(error)
             if (error instanceof Error) {
                 setError(error.message)
             }

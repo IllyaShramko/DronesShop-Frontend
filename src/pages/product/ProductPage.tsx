@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductById } from "../../hooks";
 import { useEffect } from "react";
 import { BlocksInfo, SimilarProducts, SmallActionsProduct } from "../../components";
+import { useGoHead } from "../../shared/hooks";
 
 
 export function ProductPage() {
@@ -10,8 +11,10 @@ export function ProductPage() {
     const currentId = Number(id)
     const {product, isLoading, error} = useGetProductById({id: currentId})
     const navigate = useNavigate()
+    const goHead = useGoHead()
 
     useEffect(() => {
+        goHead()
         document.body.style.backgroundColor = '#CDD5DD';
         return () => {
             document.body.style.backgroundColor = '#ffffff';
