@@ -8,7 +8,7 @@ export function Header() {
         <nav className={styles.navigation}>
             <Link to={"/catalog"}>Каталог</Link>
             <Link to={"/about"}>Про нас</Link>
-            <Link to={"#"}>Контакти</Link>
+            <Link to={"/contacts"}>Контакти</Link>
         </nav>
         <Link to={"/"} className={styles.logoContainer}>
             <img src={IMAGES.Logo} alt="" />

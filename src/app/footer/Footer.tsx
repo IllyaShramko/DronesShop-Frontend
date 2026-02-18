@@ -23,7 +23,7 @@ export function Footer() {
 			<img src = {IMAGES.bigLogo} alt="DRONES" />
 
 			<div className = {styles.links}>
-				<Link to = {"#"}>Каталог</Link>
+				<Link to = {"/catalog"}>Каталог</Link>
 				<Link to = {"/about"}>Про нас</Link>
 				<Link to = {"/contacts"}>Контакти</Link>
 				<Link to = {"/cart"}>Кошик</Link>
