@@ -2,8 +2,12 @@ import styles from "./header.module.css"
 import { ICONS } from "../../shared/icons"
 import { IMAGES } from "../../shared/images"
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import { HeaderProps } from "./header.types"
 
-export function Header() {
+export function Header(props: HeaderProps) {
+    const { setIsOpenModal } = props
+
     return <header className={styles.header}>
         <nav className={styles.navigation}>
             <Link to={"/catalog"}>Каталог</Link>
@@ -17,9 +21,13 @@ export function Header() {
             <div className={styles.actionIcon}>
                 <ICONS.Purchases/>
             </div>
-            <div className={styles.actionIcon}>
+            <button className={styles.actionIcon} onClick={() => {
+                setIsOpenModal(true)
+                console.log("open modal")
+                
+                }}>
                 <ICONS.User/>
-            </div>
+            </button>
         </div>
         <div className={styles.background}></div>
     </header>
