@@ -59,7 +59,7 @@ export function FormContacts() {
             
             <label className={styles.formField}>
                 Email:
-                <input type="text" className={emailError && styles.errorInput} placeholder="Ваш E-mail" {...register("email", {
+                <input type="email" className={emailError && styles.errorInput} placeholder="Ваш E-mail" {...register("email", {
                     required: {
                         value: true,
                         message: "Email є обов'язковим полем"

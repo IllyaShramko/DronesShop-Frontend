@@ -5,8 +5,10 @@ import { Main } from "../main";
 import styles from './layout.module.css';
 import { ModalLogin, ModalSignUp } from "../../components";
 import { useEffect, useState } from "react";
+import { useGetMe } from "../../hooks";
 
 export function Layout() {
+    useGetMe()
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
     const [lastPageModal, setLastPageModal] = useState<string>("login")
     useEffect(() => {

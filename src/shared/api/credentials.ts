@@ -10,7 +10,14 @@ export interface LoginCredentials {
     password: string;
 }
 export interface RegisterCredentials {
-    name: string;
+    firstName: string;
     email: string;
     password: string;
+}
+export interface UserInformationEditCredentials {
+    firstName: string;
+    lastName?: string;
+    patronymic?: string;
+    phoneNumber?: string;
+    email: string;
 }
