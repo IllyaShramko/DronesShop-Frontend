@@ -1,0 +1,45 @@
+.info {
+    width: 668px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+.title {
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #0C122A;
+}
+.info section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.info section div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.info section div p {
+    color: #3D4155;
+    font-size: 20px;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+}
+.social {
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.social h4 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #0C122A;
+}
+.socialIcons {
+    display: flex;
+    justify-content: space-between;
+}

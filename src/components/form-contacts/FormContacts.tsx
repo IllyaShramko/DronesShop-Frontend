@@ -12,9 +12,8 @@ export function FormContacts() {
         const responseData = await sendContactMail(data)
         if ("error" in responseData && responseData.error) {
             setError('root', {message: responseData.error})
-        } else {
-            reset(formState.defaultValues)
-        }
+        } 
+        reset(formState.defaultValues)
     }
     
     useEffect( () => {
@@ -60,7 +59,7 @@ export function FormContacts() {
             
             <label className={styles.formField}>
                 Email:
-                <input type="text" className={emailError && styles.errorInput} placeholder="Email" {...register("email", {
+                <input type="text" className={emailError && styles.errorInput} placeholder="Ваш E-mail" {...register("email", {
                     required: {
                         value: true,
                         message: "Email є обов'язковим полем"
@@ -85,7 +84,7 @@ export function FormContacts() {
             <p className={styles.error}>{rootError?.message}</p>
         </div>
         <div>
-            <button type="submit" disabled={isLoading}>Надіслати</button>
+            <button type="submit" className={styles.submitButton} disabled={isLoading}>Надіслати</button>
         </div>
     </form>
 }   
