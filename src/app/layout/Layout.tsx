@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 import { Footer } from "../footer";
 import { Header } from "../header";
 import { Main } from "../main";
@@ -14,6 +14,12 @@ export function Layout() {
     useEffect(() => {
         console.log("isOpenModal", isOpenModal)
     }, [isOpenModal])
+    const [searchParams] = useSearchParams()
+    const code = searchParams.get("code")
+    if (code) {
+        setLastPageModal("continueResetPassword")
+        setIsOpenModal(true)
+    }
     return (
         <div className={styles.container}>
             <Header setIsOpenModal={setIsOpenModal} />
@@ -32,8 +38,13 @@ export function Layout() {
                         setLastPageModal("signUp")
                         setIsOpenModal(isOpen)
                     }}
+                    setIsOpenResetPassword={(isOpen) => {
+                        setLastPageModal("resetPassword")
+                        setIsOpenModal(isOpen)
+                    }}
                 />
-                : <ModalSignUp
+                : lastPageModal === "signUp"
+                ? <ModalSignUp
                     isOpen={isOpenModal}
                     onClose={() => setIsOpenModal(false)}
                     setIsOpenLogin={(isOpen) => {
@@ -41,6 +52,9 @@ export function Layout() {
                         setIsOpenModal(isOpen)
                     }}
                 />
+                : lastPageModal === "resetPassword"
+                ? null
+                : null
             }
         </div>
     )

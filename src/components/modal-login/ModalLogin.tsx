@@ -8,7 +8,7 @@ import { useUserContext } from "../../context"
 import { useNavigate } from "react-router-dom"
 
 export function ModalLogin(props: ModalLoginProps) {
-    const { isOpen, onClose, setIsOpenSignUp } = props
+    const { isOpen, onClose, setIsOpenSignUp, setIsOpenResetPassword } = props
     const {register, handleSubmit, formState, setError, reset} = useForm<LoginFormState>()
     const [login, {isLoading, error}] = useLogin()
     const {setToken} = useUserContext()
@@ -70,7 +70,7 @@ export function ModalLogin(props: ModalLoginProps) {
                     })} />
                     <p className={styles.error}>{passwordError?.message}</p>
                 </label>
-                <p>Забули пароль?</p>
+                <p className={styles.alreadyRegistered} onClick={() => setIsOpenResetPassword(true)}>Забули пароль?</p>
                 <p className={styles.error}>{rootError?.message}</p>
             </div>
             <div className={styles.footer}>
