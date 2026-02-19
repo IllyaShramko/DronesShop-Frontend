@@ -6,6 +6,7 @@ interface UserContextContract {
     user: User | null
     setUser: (user: User | null) => void
     setToken: (token: string | null) => void
+    logout: () => void
 }
 
 const UserContext = createContext<UserContextContract | null>(null)
@@ -20,8 +21,13 @@ export function UserContextProvider({children}: PropsWithChildren) {
         }
         setToken(token)
     }
+    function logout() {
+        setUser(null)
+        localStorage.removeItem('token')
+        setToken(null)
+    }
 
-    return <UserContext value={{user, token, setUser, setToken: setTokenWithStorage}}>{children}</UserContext>
+    return <UserContext value={{user, token, setUser, setToken: setTokenWithStorage, logout}}>{children}</UserContext>
 }
 export function useUserContext() {
     const ctx = useContext(UserContext)

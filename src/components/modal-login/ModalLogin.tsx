@@ -45,14 +45,14 @@ export function ModalLogin(props: ModalLoginProps) {
                 <ICONS.CloseCross className={styles.closeIcon} />
             </button>
             <div className={styles.header}>
-                <button className={`${styles.headerButton} ${styles.buttonActive}`} >Авторизація</button>
-                <p>/</p>
-                <button className={`${styles.headerButton}`} onClick={() => setIsOpenSignUp(true)}>Реєстрація</button>
+                <p className={`${styles.headerButton} ${styles.buttonActive}`} >Авторизація</p>
+                <p className={styles.headerSeparator}>/</p>
+                <button type="button" className={`${styles.headerButton}`} onClick={() => setIsOpenSignUp(true)}>Реєстрація</button>
             </div>
             <div className={styles.body}>
                 <label className={styles.formField}>
                     Email
-                    <input type="email" {...register("email", {
+                    <input type="email" className={emailError && styles.errorInput} {...register("email", {
                         required: {
                             value: true,
                             message: "Поле обов'язкове для заповнення"
@@ -62,7 +62,7 @@ export function ModalLogin(props: ModalLoginProps) {
                 </label>
                 <label className={styles.formField}>
                     Пароль
-                    <input type="password" {...register("password", {
+                    <input type="password" className={passwordError && styles.errorInput} {...register("password", {
                         required: {
                             value: true,
                             message: "Поле обов'язкове для заповнення"
@@ -74,8 +74,10 @@ export function ModalLogin(props: ModalLoginProps) {
                 <p className={styles.error}>{rootError?.message}</p>
             </div>
             <div className={styles.footer}>
-                <button type="button" className={styles.cancelButton} onClick={onClose}>Скасувати</button>
-                <button type="submit" className={styles.submitButton} onClick={handleSubmit(onSubmit)}>Увійти</button>
+                <div className={styles.buttons}>
+                    <button type="button" className={styles.cancelButton} onClick={onClose}>Скасувати</button>
+                    <button type="submit" className={styles.submitButton} onClick={handleSubmit(onSubmit)}>Увійти</button>
+                </div>
             </div>
         </form>
     </>

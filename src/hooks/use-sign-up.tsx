@@ -17,7 +17,11 @@ export function useSignUp(): UseSignUpContract {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(credentials)
+                body: JSON.stringify({
+                    firstName: credentials.firstName,
+                    email: credentials.email,
+                    password: credentials.password
+                })
             })
             if (response.status === 400) {
                 const message = "Неправильний email або пароль."
