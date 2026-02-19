@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './layout';
-import { AboutPage, CatalogPage, ContactsPage, HomePage, NotFoundPage, ProductPage } from '../pages';
+import { AboutPage, CatalogPage, ContactsPage, HomePage, NotFoundPage, ProductPage, UserContactInfoPage } from '../pages';
+import { CabinetLayout } from './cabinet-layout';
 export function AppRoutes() {
     return <BrowserRouter>
         <Routes>
@@ -11,6 +12,11 @@ export function AppRoutes() {
                 <Route path='/products/:id' element={<ProductPage/>}></Route>
                 <Route path='/contacts' element={<ContactsPage/>}></Route>
                 <Route path='/*' element={<NotFoundPage/>}/>
+                <Route path='/cabinet/' element={<CabinetLayout/>}>
+                    <Route path='' element={<UserContactInfoPage/>}/>
+                    <Route path='orders' element={<h1>Orders</h1>}/>
+                    <Route path='addresses' element={<h1>Addresses</h1>}/>
+                </Route>
             </Route>
         </Routes>
     </BrowserRouter>
