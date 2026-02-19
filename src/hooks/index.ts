@@ -9,3 +9,6 @@ export { useLogin } from "./use-login";
 export { useSignUp } from "./use-sign-up";
 export { useGetMe } from "./use-get-me";
 export { useEditUserInfo } from "./use-edit-user-information";
+export { useSendResetPasswordCode } from "./use-send-reset-password-code";
+export { useVerifyCode } from "./use-verify-code";
+export { useSendResetPassword } from "./use-reset-password";

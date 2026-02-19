@@ -1,30 +1,29 @@
 import { useState } from "react"
-import { API_URL, ErrorResponse, LoginCredentials,  } from "../shared/api"
+import { API_URL, ErrorResponse } from "../shared/api"
 
-type LoginRequestFunction = (credentials: LoginCredentials) => Promise<ErrorResponse | {token: string}>
+type SendResetPasswordCodeRequestFunction = (credentials: {email: string, url: string}) => Promise<ErrorResponse | {message: string}>
 
-type UseLoginContract = [LoginRequestFunction, {isLoading: boolean, error: string | null}]
+type UseSendResetPasswordCodeContract = [SendResetPasswordCodeRequestFunction, {isLoading: boolean, error: string | null}]
 
-export function useLogin(): UseLoginContract {
+export function useSendResetPasswordCode(): UseSendResetPasswordCodeContract {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
-    const login: LoginRequestFunction = async (credentials) => {
+    const sendResetPasswordCode: SendResetPasswordCodeRequestFunction = async (credentials) => {
         try {
             setIsLoading(true)
-            const response = await fetch(`${API_URL}/user/login`, {
+            const response = await fetch(`${API_URL}/user/password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(credentials)
             })
-            if (response.status === 401) {
-                const message = "Неправильний email або пароль."
-                setError(message)
+            if (response.status === 400) {
+                const message = "Invalid data."
                 return {error: message}
             } else if (response.status === 404) {
-                const message = "Користувача з таким email не знайдено."
+                const message = "Користувача з такою електронною поштою не знайдено."
                 setError(message)
                 return {error: message}
             } else if (response.status === 500) {
@@ -32,7 +31,7 @@ export function useLogin(): UseLoginContract {
                 setError(message)
                 return {error: message}
             }
-            const data: {token: string} = await response.json()
+            const data: {message: string} = await response.json()
             return data
         } catch (error) {
             const message = "Network or server internal error. Please try again later."
@@ -42,5 +41,5 @@ export function useLogin(): UseLoginContract {
             setIsLoading(false)
         }
     }
-    return [login, {isLoading, error}]
+    return [sendResetPasswordCode, {isLoading, error}]
 }

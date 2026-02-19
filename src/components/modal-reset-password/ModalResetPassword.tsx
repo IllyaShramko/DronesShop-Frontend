@@ -1,50 +1,44 @@
 import { useForm } from "react-hook-form"
 import styles from "./modal-reset.module.css"
-import { ModalResetPasswordProps, ResetPasswordFormState } from "./modal-reset.types"
+import { ModalResetPasswordProps } from "./modal-reset.types"
 import { ICONS } from "../../shared/icons"
 import { useEffect } from "react"
+import { StartReset } from "./start-reset"
+import { ContinueReset } from "./continue-reset"
+import { useNavigate } from "react-router-dom"
 
 export function ModalResetPassword(props: ModalResetPasswordProps) {
-    const { isOpen, onClose } = props
-    const {register, handleSubmit, formState, setError, reset} = useForm<ResetPasswordFormState>()
-    
-    const emailError = formState.errors.email
-    const rootError = formState.errors.root
-
+    const { isOpen, onClose, lastPageModal, setLastPageModal } = props
+    const navigate = useNavigate()
+    console.log("lastPageModal", lastPageModal)
     useEffect(() => {
         return () => {
-            reset()
+            setLastPageModal("login")
         }
     }, [])
+
+    function closeModal() {
+        onClose()
+        setLastPageModal("login")
+    }
+    function setLogin() {
+        navigate("/")
+        setLastPageModal("login")
+    }
+
     if (!isOpen) return null
 
     return <>
-        <div className={styles.overlay} onClick={onClose}></div>
+        <div className={styles.overlay} onClick={closeModal}></div>
         <div className={styles.modal}>
-            <button onClick={onClose} className={styles.closeButton}>
+            <button onClick={closeModal} className={styles.closeButton}>
                 <ICONS.CloseCross className={styles.closeIcon} />
             </button>
-            <div className={styles.header}>
-                <p className={`${styles.headerButton} ${styles.buttonActive}`} >Відновлення пароля</p>
-            </div>
-            <form className={styles.body}>
-                <label className={styles.formField}>
-                    Email
-                    <input type="email" className={emailError && styles.inputError} {...register("email", {
-                        required: {
-                            value: true,
-                            message: "Поле обов'язкове для заповнення"
-                        }
-                    })} />
-                    <p className={styles.error}>{emailError?.message}</p>
-                </label>
-            </form>
-            <div className={styles.footer}>
-                <div className={styles.buttons}>
-                    <button type="button" className={styles.cancelButton} onClick={onClose}>Скасувати</button>
-                    <button type="button" className={styles.submitButton} onClick={onClose}>Надіслати лист</button>
-                </div>
-            </div>
+            {
+                lastPageModal === "resetPassword" 
+                ? <StartReset closeModal={closeModal} />
+                : <ContinueReset closeModal={closeModal} setLogin={setLogin} />
+            }
         </div>
     </>
 }

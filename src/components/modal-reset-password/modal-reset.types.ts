@@ -5,10 +5,3 @@ export interface ModalResetPasswordProps {
     lastPageModal: string
     setLastPageModal: (page: string) => void
 }
-export interface ResetPasswordFormState {
-    email: string
-}
-export interface ContinueResetPasswordFormState {
-    password: string
-    confirmPassword: string
-}

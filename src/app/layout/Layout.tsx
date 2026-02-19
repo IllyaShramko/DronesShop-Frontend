@@ -3,7 +3,7 @@ import { Footer } from "../footer";
 import { Header } from "../header";
 import { Main } from "../main";
 import styles from './layout.module.css';
-import { ModalLogin, ModalSignUp } from "../../components";
+import { ModalLogin, ModalResetPassword, ModalSignUp } from "../../components";
 import { useEffect, useState } from "react";
 import { useGetMe } from "../../hooks";
 
@@ -16,10 +16,12 @@ export function Layout() {
     }, [isOpenModal])
     const [searchParams] = useSearchParams()
     const code = searchParams.get("code")
-    if (code) {
-        setLastPageModal("continueResetPassword")
-        setIsOpenModal(true)
-    }
+    useEffect(() => {
+        if (code) {
+            setLastPageModal("continueResetPassword")
+            setIsOpenModal(true)
+        }
+    }, [code])
     return (
         <div className={styles.container}>
             <Header setIsOpenModal={setIsOpenModal} />
@@ -52,9 +54,12 @@ export function Layout() {
                         setIsOpenModal(isOpen)
                     }}
                 />
-                : lastPageModal === "resetPassword"
-                ? null
-                : null
+                : <ModalResetPassword
+                    isOpen={isOpenModal}
+                    onClose={() => setIsOpenModal(false)}
+                    lastPageModal={lastPageModal}
+                    setLastPageModal={setLastPageModal}
+                />
             }
         </div>
     )

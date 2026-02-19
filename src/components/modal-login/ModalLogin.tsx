@@ -70,7 +70,7 @@ export function ModalLogin(props: ModalLoginProps) {
                     })} />
                     <p className={styles.error}>{passwordError?.message}</p>
                 </label>
-                <p className={styles.alreadyRegistered} onClick={() => setIsOpenResetPassword(true)}>Забули пароль?</p>
+                <p className={styles.informationText} onClick={() => setIsOpenResetPassword(true)}>Забули пароль?</p>
                 <p className={styles.error}>{rootError?.message}</p>
             </div>
             <div className={styles.footer}>
