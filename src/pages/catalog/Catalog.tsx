@@ -1,42 +1,68 @@
 import { useEffect, useState } from "react";
-import { IMAGES } from "../../shared/images";
 import styles from "./catalog.module.css";
 import { useGetProducts } from "../../hooks";
-import { SelectCategory, ProductList } from "../../components";
+import { SelectCategory, ProductList, Pagination } from "../../components";
 import { useGoHead } from "../../shared/hooks";
 
 
 export function CatalogPage() {
+    const LIMIT = 16;
     const goHead = useGoHead()
-    
-    const [selectedCategory, setSelectedCategory] = useState<"All" | number>("All")
-    const {products, isLoading, error} = useGetProducts()
 
-    const [filteredProducts, setFilteredProducts] = useState(products)
+    const [selectedCategory, setSelectedCategory] = useState<"All" | number>("All");
+    const { products, isLoading, error } = useGetProducts();
+
+    const [filteredProducts, setFilteredProducts] = useState(products);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         goHead()
         if (isNaN(+selectedCategory)) {
-            setFilteredProducts(products)
-            return;
+            setFilteredProducts(products);
+        } else {
+            const newFilteredProducts = products.filter(
+                (product) => product.categoryId === +selectedCategory
+            );
+            setFilteredProducts(newFilteredProducts);
         }
-        const newFilteredProducts = products.filter(product => {
-            return product.categoryId === +selectedCategory
-        })
-        setFilteredProducts(newFilteredProducts)
 
-    }, [selectedCategory, products])
+        setCurrentPage(1);
+    }, [selectedCategory, products]);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error occured. {error}</div>;
+    }
+
+    const totalPages = Math.ceil(filteredProducts.length / LIMIT);
+    const startIndex = (currentPage - 1) * LIMIT;
+
+    const paginatedProducts = filteredProducts.slice(
+        startIndex,
+        startIndex + LIMIT
+    );
 
     return (
         <div className={styles.page}>
             <p className={styles.title}>Каталог</p>
-            {
-                isLoading ? <div>Завантаження.....</div> : error ? <div>Помилка при завантаженні продуктів. {error}</div> : 
-                <div className={styles.content}>
-                    <SelectCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-                    <ProductList filteredProducts={filteredProducts}/>
-                </div> 
-            }
+
+            <div className={styles.content}>
+                <SelectCategory
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                />
+
+                <ProductList filteredProducts={paginatedProducts} />
+            </div>
+
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+            />
         </div>
     );
 }
