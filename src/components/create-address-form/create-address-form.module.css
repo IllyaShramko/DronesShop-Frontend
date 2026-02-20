@@ -1,16 +1,10 @@
-
-.contactInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
 .form {
     width: 668px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 44px;
 }
-.contactInfo h2 {
+.form h2 {
     font-weight: 400;
     font-size: 24px;
     letter-spacing: 1px;
@@ -65,7 +59,4 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
-}
-.loadingButton {
-    opacity: 0.8;
 }

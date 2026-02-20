@@ -28,7 +28,18 @@ export function ContinueReset(props: ContinueResetProps) {
                 setError('root', {message: "Invalid reset code"})
                 return
             }
-            if ("email" in responseData && responseData.email) {
+            if ("email" in responseData && "message" in responseData) {
+                if (!responseData.email) {
+                    switch (responseData.message){
+                        case "CODE_DOESNT_EXISTS":
+                            setError('root', {message: "Такого коду не існує."})
+                            return
+                        case "CODE_EXPIRED":
+                            setError('root', {message: "Цей код вже був використаний для відновлення, або його час дії пройшов."})
+                            return
+                    }
+                    return
+                }
                 setEmail(responseData.email)
             }
         }
@@ -36,6 +47,9 @@ export function ContinueReset(props: ContinueResetProps) {
     }, [code, setError, verifyCode])
 
     async function onSubmit(data: ContinueResetPasswordFormState) {
+        if (email === "") {
+            return  
+        }
         console.log("Form sended:", data)
         if (data.password !== data.confirmPassword) {
             setError('confirmPassword', {message: "Паролі не співпадають"})

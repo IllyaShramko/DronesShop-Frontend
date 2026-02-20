@@ -21,3 +21,18 @@ export interface UserInformationEditCredentials {
     phoneNumber?: string;
     email: string;
 }
+export interface AddressCredentials {
+    city: string;
+    street: string;
+    houseNumber: number;
+    apartamentNumber: number;
+    entranceNumber: number;
+}
+export interface EditAddressCredentials {
+    id: number;
+    city: string;
+    street: string;
+    houseNumber: number;
+    apartamentNumber: number;
+    entranceNumber: number;
+}

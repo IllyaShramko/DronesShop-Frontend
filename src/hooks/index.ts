@@ -12,3 +12,6 @@ export { useEditUserInfo } from "./use-edit-user-information";
 export { useSendResetPasswordCode } from "./use-send-reset-password-code";
 export { useVerifyCode } from "./use-verify-code";
 export { useSendResetPassword } from "./use-reset-password";
+export { useGetMyAddresses } from "./use-get-my-addresses"
+export { useCreateNewAddress } from "./use-add-new-address"
+export { useEditAddress } from "./use-edit-address-by-id"

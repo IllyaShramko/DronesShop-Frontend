@@ -1,0 +1,1 @@
+export { UserAddressesInfoPage } from "./UserAddressesInfo"

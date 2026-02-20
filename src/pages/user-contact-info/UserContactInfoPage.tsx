@@ -4,12 +4,18 @@ import { useEffect } from "react"
 import { UserInformationEditCredentials } from "../../shared/api"
 import { useEditUserInfo } from "../../hooks"
 import { useUserContext } from "../../context"
+import { useGoHead } from "../../shared/hooks"
 
 
 export function UserContactInfoPage() {
     const {register, handleSubmit, formState, setError, reset} = useForm<UserInformationEditCredentials>()
     const [editUserInfo, {isLoading, error}] = useEditUserInfo()
     const {user} = useUserContext()
+    const goHead = useGoHead()
+    useEffect(() => {
+        goHead()
+    }, [])
+    
     async function onSubmit(data: UserInformationEditCredentials) {
         console.log("Form sended:", data)
         const responseData = await editUserInfo(data)
@@ -50,11 +56,18 @@ export function UserContactInfoPage() {
     const rootError = formState.errors.root
 
     return <div className={styles.contactInfo}>
-        <h2>Особиста інформація</h2>
-        <form onSubmit={handleSubmit(onSubmit)} action="">
+        <h2>Контактні дані</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <label className={styles.formField}>
+                Прізвище
+                <input type="text" id="lastName" defaultValue={user?.lastName} placeholder="Ваше Призвіще" {...register("lastName", {
+                    required: false
+                })} />
+                <p className={styles.error}>{lastNameError?.message}</p>
+            </label>
             <label className={styles.formField}>
                 Ім'я
-                <input type="text" id="firstName" defaultValue={user?.firstName} {...register("firstName", {
+                <input type="text" id="firstName" defaultValue={user?.firstName} placeholder="Ваше Ім'я" {...register("firstName", {
                     required: {
                         value: true,
                         message: "Ім'я є обов'язковим полем"
@@ -63,29 +76,22 @@ export function UserContactInfoPage() {
                 <p className={styles.error}>{firstNameError?.message}</p>
             </label>
             <label className={styles.formField}>
-                Прізвище
-                <input type="text" id="lastName" defaultValue={user?.lastName} {...register("lastName", {
-                    required: false
-                })} />
-                <p className={styles.error}>{lastNameError?.message}</p>
-            </label>
-            <label className={styles.formField}>
                 По батькові
-                <input type="text" id="patronymic" defaultValue={user?.patronymic} {...register("patronymic", {
+                <input type="text" id="patronymic" defaultValue={user?.patronymic} placeholder="По батькові" {...register("patronymic", {
                     required: false
                 })} />
                 <p className={styles.error}>{patronymicError?.message}</p>
             </label>
             <label className={styles.formField}>
                 Номер телефону
-                <input type="tel" id="phoneNumber" defaultValue={user?.phoneNumber} {...register("phoneNumber", {
+                <input type="tel" id="phoneNumber" defaultValue={user?.phoneNumber} placeholder="+ 38 0" {...register("phoneNumber", {
                     required: false
                 })} />
                 <p className={styles.error}>{phoneNumberError?.message}</p>
             </label>
             <label className={styles.formField}>
                 Email
-                <input type="email" id="email" defaultValue={user?.email} {...register("email", {
+                <input type="email" id="email" defaultValue={user?.email} placeholder="Ваше Email" {...register("email", {
                     required: {
                         value: true,
                         message: "Email є обов'язковим полем"
@@ -97,7 +103,7 @@ export function UserContactInfoPage() {
                 <p className={styles.error}>{emailError?.message}</p>
             </label>
             {rootError && <p className={styles.rootError}>{rootError.message}</p>}
-            <button type="submit" className={styles.submitButton} disabled={isLoading}>{isLoading ? "Збереження..." : "Зберегти зміни"}</button>
+            <button type="submit" className={`${styles.submitButton} ${isLoading && styles.loadingButton}`} disabled={isLoading}>{isLoading ? "Збереження..." : "Зберегти зміни"}</button>
         </form>
     </div>
 }

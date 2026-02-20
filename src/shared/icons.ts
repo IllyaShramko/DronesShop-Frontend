@@ -12,6 +12,7 @@ import { ReactComponent as PinMap } from "./../assets/svg/PinMap.svg"
 import { ReactComponent as Calendar } from "./../assets/svg/Calendar.svg"
 import { ReactComponent as Map } from "./../assets/svg/Map.svg"
 import { ReactComponent as CloseCross } from "./../assets/svg/close.svg"
+import { ReactComponent as Edit } from "./../assets/svg/edit.svg"
 
 // Same imgs in same row
 export const ICONS = {
@@ -20,5 +21,6 @@ export const ICONS = {
     CloseCross,
     RightArrowBlack, RightArrowWhite,
     Telegram, Instagram, Facebook, 
-    Phone, Mail, PinMap, Calendar, Map
+    Phone, Mail, PinMap, Calendar, Map,
+    Edit
 }

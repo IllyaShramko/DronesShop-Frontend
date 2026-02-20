@@ -12,12 +12,11 @@ export function CabinetLayout() {
     }
     return <div className={styles.container}>
         <aside className={styles.sidebar}>
-            <nav>
-                <Link className={`${styles.sideButton} cabinet-link`} to="/cabinet">Контактні дані</Link>
-                <Link className={`${styles.sideButton} orders-link`} to="/cabinet/orders">Мої замовлення</Link>
-                <Link className={`${styles.sideButton} addresses-link`} to="/cabinet/addresses">Адреса доставки</Link>
-            </nav>
-            <div className={styles.line}></div>
+            <h1>Особистий кабінет</h1>
+            <Link className={`${styles.sideButton} cabinet-link`} to="/cabinet">Контактні дані</Link>
+            <Link className={`${styles.sideButton} orders-link`} to="/cabinet/orders">Мої замовлення</Link>
+            <Link className={`${styles.sideButton} addresses-link`} to="/cabinet/addresses">Адреса доставки</Link>
+            <hr className={styles.line}/>
             <div>
                 <button className={styles.sideButton} onClick={() => {
                     logout()
