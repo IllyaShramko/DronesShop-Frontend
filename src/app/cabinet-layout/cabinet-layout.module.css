@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+.main {
+    width: 841px;
+}
+.sidebar {
+    width: 335px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+.sidebar h1 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #0C122A;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.sideButton {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #9EA0AA;
+    background: none;
+    border: none;
+    transition: color 0.25s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.sideButton:hover {
+    color: #0C122A;
+}
+.line {
+    border: 1px #CDD5DD solid;
+}

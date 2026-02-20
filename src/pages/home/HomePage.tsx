@@ -4,9 +4,13 @@ import { IMAGES } from "../../shared/images";
 import { ICONS } from "../../shared/icons";
 import { NewProducts } from "../../components/new-list" 
 import { PopularProducts } from "../../components/popular-list"
-import { useGetPopularProducts } from "../../hooks";
+import { useGoHead } from "../../shared/hooks";
+
 export function HomePage() {
+    const goHead = useGoHead()
+
     useEffect(() => {
+        goHead()
         document.body.style.backgroundColor = '#CDD5DD';
         return () => {
             document.body.style.backgroundColor = '#ffffff';

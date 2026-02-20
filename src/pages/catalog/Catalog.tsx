@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import styles from "./catalog.module.css";
 import { useGetProducts } from "../../hooks";
 import { SelectCategory, ProductList, Pagination } from "../../components";
+import { useGoHead } from "../../shared/hooks";
+
 
 export function CatalogPage() {
     const LIMIT = 16;
+    const goHead = useGoHead()
 
     const [selectedCategory, setSelectedCategory] = useState<"All" | number>("All");
     const { products, isLoading, error } = useGetProducts();
@@ -13,6 +16,7 @@ export function CatalogPage() {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
+        goHead()
         if (isNaN(+selectedCategory)) {
             setFilteredProducts(products);
         } else {

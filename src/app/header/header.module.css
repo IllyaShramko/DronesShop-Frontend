@@ -14,6 +14,11 @@
     backdrop-filter: blur(64px);
     z-index: 10;
 }
+.header button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
 .background {
     position: absolute;
     left: 0;

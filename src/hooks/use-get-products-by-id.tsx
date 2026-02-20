@@ -29,7 +29,6 @@ export function useGetProductById({id}: UseGetProductByIdParams): UseGetProductB
             }
             setIsLoading(true)
         } catch (error) {
-            console.error(error)
             if (error instanceof Error) {
                 setError(error.message)
             }

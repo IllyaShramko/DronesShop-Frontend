@@ -33,7 +33,6 @@ export function useGetPopularProducts({limit, offset}: UseGetPopularProductsPara
 
             setIsLoading(true)
         } catch (error) {
-            console.error(error)
             if (error instanceof Error) {
                 setError(error.message)
             }
