@@ -17,6 +17,7 @@ export function Pagination({
     }
 
     const maxVisible = 7;
+
     let startPage = currentPage - 3;
     let endPage = currentPage + 3;
 
@@ -27,32 +28,44 @@ export function Pagination({
 
     if (endPage > totalPages) {
         endPage = totalPages;
-        startPage = totalPages - maxVisible + 1;
+        startPage = Math.max(1, totalPages - maxVisible + 1);
     }
 
     const visiblePages: number[] = [];
 
     for (let i = startPage; i <= endPage; i++) {
-        if (i > 0) {
-            visiblePages.push(i);
-        }
+        visiblePages.push(i);
     }
 
     return (
         <div className={styles.pagination}>
-            {currentPage > 1 && (
-                <button className={styles.pageButton} onClick={() => onPageChange(1)}>⏮</button>
-            )}
+            <button
+                className={styles.pageButton}
+                onClick={() => onPageChange(1)}
+                disabled={currentPage === 1}
+            >
+                ⏮
+            </button>
 
             {visiblePages.map((page) => (
                 <button
                     key={page}
-                    className={`${styles.pageButton} ${page === currentPage ? styles.active : ""}`} onClick={() => onPageChange(page)}>{page}</button>
+                    className={`${styles.pageButton} ${
+                        page === currentPage ? styles.active : ""
+                    }`}
+                    onClick={() => onPageChange(page)}
+                >
+                    {page}
+                </button>
             ))}
 
-            {currentPage < totalPages && (
-                <button className={styles.pageButton}onClick={() => onPageChange(totalPages)}>⏭</button>
-            )}
+            <button
+                className={styles.pageButton}
+                onClick={() => onPageChange(totalPages)}
+                disabled={currentPage === totalPages}
+            >
+                ⏭
+            </button>
         </div>
     );
 }

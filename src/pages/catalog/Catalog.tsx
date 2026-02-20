@@ -3,9 +3,9 @@ import styles from "./catalog.module.css";
 import { useGetProducts } from "../../hooks";
 import { SelectCategory, ProductList, Pagination } from "../../components";
 
-const LIMIT = 8;
-
 export function CatalogPage() {
+    const LIMIT = 16;
+
     const [selectedCategory, setSelectedCategory] = useState<"All" | number>("All");
     const { products, isLoading, error } = useGetProducts();
 
@@ -16,17 +16,17 @@ export function CatalogPage() {
         if (isNaN(+selectedCategory)) {
             setFilteredProducts(products);
         } else {
-            const newFilteredProducts = products.filter(product => {
-                return product.categoryId === +selectedCategory;
-            });
+            const newFilteredProducts = products.filter(
+                (product) => product.categoryId === +selectedCategory
+            );
             setFilteredProducts(newFilteredProducts);
         }
-        setCurrentPage(1);
 
+        setCurrentPage(1);
     }, [selectedCategory, products]);
 
     if (isLoading) {
-        return <div>Loading.....</div>;
+        return <div>Loading...</div>;
     }
 
     if (error) {
@@ -35,6 +35,7 @@ export function CatalogPage() {
 
     const totalPages = Math.ceil(filteredProducts.length / LIMIT);
     const startIndex = (currentPage - 1) * LIMIT;
+
     const paginatedProducts = filteredProducts.slice(
         startIndex,
         startIndex + LIMIT

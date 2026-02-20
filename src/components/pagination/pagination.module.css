@@ -20,6 +20,11 @@
     opacity: 0.6;
 }
 
+.pageButton:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
 .active {
     background: #e6e6e6;
     border-radius: 50%;
