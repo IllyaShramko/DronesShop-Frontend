@@ -21,7 +21,13 @@ export function useCreateNewAddress(): UseCreateNewAddressContract {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 },
-                body: JSON.stringify(credentials)
+                body: JSON.stringify({
+                    "city": credentials.city,
+                    "street": credentials.street,
+                    "houseNumber": +credentials.houseNumber,
+                    "apartamentNumber": +credentials.apartamentNumber,
+                    "entranceNumber": +credentials.entranceNumber
+                })
             })
             if (response.status === 400) {
                 const message = "Invalid data."
