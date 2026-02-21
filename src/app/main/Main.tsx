@@ -10,6 +10,7 @@ export function Main(props: MainProps) {
     return (
         <main className={styles.main}>
             {children}
+            <div className={styles.backgroundBottom}></div>
         </main>
     )
 }
