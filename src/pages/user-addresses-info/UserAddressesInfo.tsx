@@ -4,15 +4,36 @@ import { ICONS } from "../../shared/icons"
 import { useEffect, useState } from "react"
 import { CreateAddressForm, EditAddressForm } from "../../components"
 import { useGoHead } from "../../shared/hooks"
+import { Address } from "../../shared/types"
 
 export function UserAddressesInfoPage() {
-    const {addresses, isLoading, error} = useGetMyAddresses()
+    const [getAddresses, {error, isLoading}] = useGetMyAddresses()
     const [isCreateFormOpened, setOpenCreateForm] = useState<boolean>(false)
     const [whichAddressIsOpened, setWhichAddressIsOpened] = useState<number | null>(null)
+    const [addresses, setAddresses] = useState<Address[]>([])
     const goHead = useGoHead()
     useEffect(() => {
         goHead()
+        async function getAddressesAsync() {
+            const gettedAddresses = await getAddresses()
+            if ("error" in gettedAddresses) {
+                setAddresses([])
+                return
+            }
+            setAddresses(gettedAddresses)
+        }
+        getAddressesAsync()
     }, [])
+
+    async function refreshAddresses() {
+        const gettedAddresses = await getAddresses()
+        if ("error" in gettedAddresses) {
+            setAddresses([])
+            return
+        }
+        setAddresses(gettedAddresses)
+        return
+    } 
 
     function closeCreateForm() {
         setOpenCreateForm(false)
@@ -59,6 +80,7 @@ export function UserAddressesInfoPage() {
                             <EditAddressForm
                                 address={address}
                                 setFormClose={() => setWhichAddressIsOpened(null)}
+                                refreshAddresses={refreshAddresses}
                             />
                         )}
                     </div>
@@ -69,6 +91,7 @@ export function UserAddressesInfoPage() {
                     isCreateFormOpened
                     ? <CreateAddressForm
                         setFormClose={closeCreateForm}
+                        refreshAddresses={refreshAddresses}
                     />
                     : <button className={styles.createButton} onClick={()=>{setOpenCreateForm(true)}}>
                         + Додати адресу

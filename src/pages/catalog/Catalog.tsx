@@ -62,6 +62,7 @@ export function CatalogPage() {
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={setCurrentPage}
+                goHead={goHead}
             />
         </div>
     );

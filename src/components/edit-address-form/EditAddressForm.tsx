@@ -8,7 +8,7 @@ import styles from "./edit-address-form.module.css"
 export function EditAddressForm(props: EditAddressFormProps) {
     const {register, handleSubmit, formState, setError, reset} = useForm<EditAddressCredentials>()
     const [editAddress, {isLoading, error}] = useEditAddress()
-    const {setFormClose, address} = props
+    const {setFormClose, address, refreshAddresses} = props
 
     async function onSubmit(data: EditAddressCredentials) {
         const responseData = await editAddress(data)
@@ -17,6 +17,7 @@ export function EditAddressForm(props: EditAddressFormProps) {
         }
         setFormClose()
         reset(formState.defaultValues)
+        await refreshAddresses()
     }
     
     useEffect(() => {

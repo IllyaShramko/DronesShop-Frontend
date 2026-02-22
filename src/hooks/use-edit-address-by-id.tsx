@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useUserContext } from "../context";
 import { API_URL, ErrorResponse, EditAddressCredentials } from "../shared/api";
-import { Address, User } from "../shared/types";
+import { Address } from "../shared/types";
 
 type EditAddressRequestFunction = (credentials: EditAddressCredentials) => Promise<ErrorResponse | Address>
 

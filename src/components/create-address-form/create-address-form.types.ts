@@ -1,4 +1,5 @@
 
 export interface CreateAddressFormProps {
-    setFormClose: () => void
+    setFormClose: () => void,
+    refreshAddresses: () => void
 }

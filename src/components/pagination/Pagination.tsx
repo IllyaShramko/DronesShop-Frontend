@@ -4,12 +4,14 @@ interface PaginationProps {
     currentPage: number;
     totalPages: number;
     onPageChange: (page: number) => void;
+    goHead: () => void
 }
 
 export function Pagination({
     currentPage,
     totalPages,
     onPageChange,
+    goHead,
 }: PaginationProps) {
 
     if (totalPages <= 1) {
@@ -41,7 +43,10 @@ export function Pagination({
         <div className={styles.pagination}>
             <button
                 className={styles.pageButton}
-                onClick={() => onPageChange(1)}
+                onClick={() => {
+                    onPageChange(1)
+                    goHead()
+                }}
                 disabled={currentPage === 1}
             >
                 ⏮
@@ -53,7 +58,10 @@ export function Pagination({
                     className={`${styles.pageButton} ${
                         page === currentPage ? styles.active : ""
                     }`}
-                    onClick={() => onPageChange(page)}
+                    onClick={() => {
+                        onPageChange(page)
+                        goHead()
+                    }}
                 >
                     {page}
                 </button>
@@ -61,7 +69,10 @@ export function Pagination({
 
             <button
                 className={styles.pageButton}
-                onClick={() => onPageChange(totalPages)}
+                onClick={() => {
+                    onPageChange(totalPages)
+                    goHead()
+                }}
                 disabled={currentPage === totalPages}
             >
                 ⏭

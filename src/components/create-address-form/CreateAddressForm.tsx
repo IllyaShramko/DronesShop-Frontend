@@ -8,7 +8,7 @@ import { useCreateNewAddress } from "../../hooks/use-add-new-address"
 export function CreateAddressForm(props: CreateAddressFormProps) {
     const {register, handleSubmit, formState, setError, reset} = useForm<AddressCredentials>()
     const [createNewAddress, {isLoading, error}] = useCreateNewAddress()
-    const {setFormClose} = props
+    const {setFormClose, refreshAddresses} = props
 
     async function onSubmit(data: AddressCredentials) {
         const responseData = await createNewAddress(data)
@@ -17,6 +17,7 @@ export function CreateAddressForm(props: CreateAddressFormProps) {
         }
         setFormClose()
         reset(formState.defaultValues)
+        await refreshAddresses()
     }
     
     useEffect( () => {
