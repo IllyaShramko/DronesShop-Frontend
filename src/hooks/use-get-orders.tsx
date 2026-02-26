@@ -17,7 +17,7 @@ export function useGetOrders(): UseGetOrdersContract {
         async function getOrders() {
             try {
                 setIsLoading(true)
-                const response = await fetch(`${API_URL}/orders`, {
+                const response = await fetch(`${API_URL}/user/orders`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
