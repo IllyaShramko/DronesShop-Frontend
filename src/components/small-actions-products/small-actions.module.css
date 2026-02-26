@@ -43,9 +43,12 @@
 .priceDiscount {
     color: #B62D11;
 }
+.smallImageContainer {
+    display: flex;
+    align-items: center;
+}
 .smallImageContainer img {
     width: 50px;
-    height: 50px;
 }
 .btnContainer {
     display: flex;

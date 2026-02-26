@@ -36,7 +36,8 @@
 }
 .imgDrone {
     position: absolute;
-    top: -120px;
+    transform: translateY(30%);
+    top: -50%;
     width: 300px;
 }
 .information {
