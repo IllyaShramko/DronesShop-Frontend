@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import styles from "./popular-card.module.css"
 import { PopularCardProps } from "./popular-card.types";
+import { ICONS } from "../../../shared/icons";
 
 export function PopularCard({product}: PopularCardProps) {
-    return <div className={styles.card}>
+    return <Link to={`/products/${product.id}`} className={styles.card}>
         <div className={styles.img}>
             <img src={product.previewPhoto} />
         </div>
@@ -17,6 +19,9 @@ export function PopularCard({product}: PopularCardProps) {
                     <p>{product.price} ₴</p>
                 </div>
             }
+            {/* <button>
+                <ICONS />
+            </button> */}
         </div>
-    </div>
+    </Link>
 }

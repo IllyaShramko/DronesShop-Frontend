@@ -5,10 +5,11 @@ import { ICONS } from "../../shared/icons";
 import { NewProducts } from "../../components/new-list" 
 import { PopularProducts } from "../../components/popular-list"
 import { useGoHead } from "../../shared/hooks";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
     const goHead = useGoHead()
-
+    const navigate = useNavigate()
     useEffect(() => {
         goHead()
         document.body.style.backgroundColor = '#CDD5DD';
@@ -33,10 +34,12 @@ export function HomePage() {
                         <p>Обирай найкраще для найважливішого.</p>
                     </div>
                     <div className={styles.btnContainer}>
-                        <button>До каталогу</button>
+                        <button onClick={() => navigate("/catalog")}>До каталогу</button>
                     </div>
                 </div>
-                <div className={styles.bottomBackground}></div>
+                <div className={styles.bottomBackground}>
+                    <img src={IMAGES.ellipse}/>
+                </div>
             </div>
         </div>
         <div className={styles.mainHome}>
@@ -47,7 +50,7 @@ export function HomePage() {
                     <p>Пропонуємо дрони й тепловізори, перевірені у найскладніших умовах.</p>
                     <p>Обираємо тільки те, чому довіряємо самі.</p>
                 </div>
-                <button>
+                <button onClick={() => navigate("/about")}>
                     <p>Читати більше</p>
                     <ICONS.RightArrowBlack className={styles.arrowRight}/>
                 </button>

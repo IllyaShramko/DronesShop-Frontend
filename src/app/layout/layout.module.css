@@ -63,4 +63,5 @@
     flex-direction: column;
     gap: 55px;
     padding-top: 30px;
+    overflow-x: hidden;
 }

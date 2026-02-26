@@ -7,6 +7,12 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.product:hover {
+    background-color: #F4F4F4;
 }
 .imageContainer {
     position: relative;

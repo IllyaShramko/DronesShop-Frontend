@@ -11,13 +11,14 @@ import BackDrone3 from "./../assets/images/drone3Back.jpg"
 import testDrone1 from "./../assets/images/drone1.png"
 import testDrone2 from "./../assets/images/drone2.png"
 import testDrone3 from "./../assets/images/drone3.png"
+import ellipse from "./../assets/images/ellipse.png"
 
 
 
 // Same imgs in same row
 export const IMAGES = {
     About1, About2, About3,
-    Logo, bigLogo, DroneMain,
+    Logo, bigLogo, DroneMain, ellipse,
     Error,
     BackDrone1, BackDrone2, BackDrone3,
     testDrone1, testDrone2, testDrone3

@@ -10,23 +10,24 @@
     display: flex;
     align-items: center;
     justify-content: end;
-    overflow-x: hidden;
-    padding-right: 100px;
+    padding-right: 110px;
     width: 100vw;
-    height: 50vh;
+    height: 40vh;
 }
 .bottomBackground {
     position: absolute;
-    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 110vw;
-    height: 50vh;
-    background-color: #FFFFFF;
-    border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+    bottom: 0;
+    width: 100vw;
     z-index: -1;
 }
+.bottomBackground img {
+    position: relative;
+    width: 100%;
+}
 .headerHome {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,6 +57,7 @@
 .description {
     display: flex;
     flex-direction: column;
+    transform: translateY(50px);
     justify-content: space-between;
     height: 120px;
 }
@@ -72,6 +74,7 @@
     border: none;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    cursor: pointer;
 }
 /*  */
 .mainHome {
@@ -86,6 +89,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 10vh;
     gap: 24px;
 }
 .headerMain h1 {

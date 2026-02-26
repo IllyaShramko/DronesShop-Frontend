@@ -59,6 +59,7 @@
     font-weight: 500;
     font-size: 44px;
     line-height: 50px;
+    height: 100px;
 }
 .nameDesc p {
     font-weight: 400;
@@ -82,6 +83,7 @@
     border-radius: 100px;
     border: 1px #FFFFFF solid;
     background: none;
+    cursor: pointer;
 }
 .bottomCard button p {
     font-size: 14px;
