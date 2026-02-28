@@ -29,14 +29,6 @@ export function CatalogPage() {
         setCurrentPage(1);
     }, [selectedCategory, products]);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error occured. {error}</div>;
-    }
-
     const totalPages = Math.ceil(filteredProducts.length / LIMIT);
     const startIndex = (currentPage - 1) * LIMIT;
 
@@ -54,8 +46,15 @@ export function CatalogPage() {
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
                 />
-
-                <ProductList filteredProducts={paginatedProducts} />
+                {
+                    isLoading 
+                    ? <div>Loading.....</div>
+                    : !products || products.length === 0
+                    ? <div>No products found. Please try again later</div>
+                    : error
+                    ? <div>Error occured. {error}</div>
+                    : <ProductList filteredProducts={paginatedProducts} />
+                }
             </div>
 
             <Pagination

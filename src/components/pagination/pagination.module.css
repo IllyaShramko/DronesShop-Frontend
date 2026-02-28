@@ -2,8 +2,10 @@
     display: flex;
     align-items: center;
     gap: 18px;
-    justify-content: center;
+    justify-content: end;
     border-radius: 40px;
+    width: 1360px;
+    margin-top: 20px;
 }
 
 .pageButton {

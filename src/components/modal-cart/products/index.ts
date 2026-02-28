@@ -1,0 +1,1 @@
+export { ModalProductsList } from "./ProductsList"

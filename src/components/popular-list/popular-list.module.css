@@ -34,3 +34,6 @@
     text-transform: uppercase;
     color: #FFFFFF;
 }
+.productCard {
+    width: 343px !important;
+}

@@ -1,9 +1,10 @@
 import { SimilarProductsProps } from "./similar-products.types";
 import styles from "./similar-product.module.css"
 import { useGetProducts, useGetSimilarProducts } from "../../hooks";
-import { ProductCard } from "../products-list/product-card";
+import { ProductCard } from "../../shared/components/product-card";
 import { Link } from "react-router-dom";
 import { ICONS } from "../../shared/icons";
+import { useCartContext } from "../../context";
 
 export function SimilarProducts({id}: SimilarProductsProps) {
     const {products, isLoading, error} = useGetSimilarProducts({id})
@@ -24,6 +25,7 @@ export function SimilarProducts({id}: SimilarProductsProps) {
                 <ProductCard 
                     product={product}
                     key={product.id}
+                    subclass=""
                 ></ProductCard>)}
         </div>
         <div className={styles.buttonDiv}>

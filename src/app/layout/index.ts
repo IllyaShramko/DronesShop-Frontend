@@ -1,1 +1,2 @@
-export {Layout} from "./Layout"
+export { Layout } from "./default-layout"
+export { AnotherLayout } from "./another-layout"

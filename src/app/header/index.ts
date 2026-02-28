@@ -1,1 +1,2 @@
-export {Header} from "./Header"
+export { Header } from "./default-header"
+export { AnotherHeader } from "./another-header"

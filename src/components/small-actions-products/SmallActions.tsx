@@ -1,8 +1,11 @@
+import { useCartContext } from "../../context"
 import { ICONS } from "../../shared/icons"
 import styles from "./small-actions.module.css"
 import { SmallActionsProductProps } from "./small-actions.types"
 
 export function SmallActionsProduct({product}: SmallActionsProductProps) {
+    const {addToCart} = useCartContext()
+
     return <div className={styles.mainBlock}>
         <div className={styles.textsProps}>
             <div className={styles.smallImageContainer}>
@@ -24,7 +27,7 @@ export function SmallActionsProduct({product}: SmallActionsProductProps) {
             </div>
         </div>
         <div className={styles.btnContainer}>
-            <button className={styles.purchasesContainer}>
+            <button className={styles.purchasesContainer} onClick={() => {addToCart(product)}}>
                 <ICONS.PurchasesBlack className={styles.purchasesImg}/>
             </button>
             <button className={styles.goToBuyContainer}>

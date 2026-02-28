@@ -1,0 +1,1 @@
+export { AnotherFooter } from "./Footer"

@@ -1,11 +1,11 @@
 import { Outlet, useSearchParams } from "react-router-dom";
-import { Footer } from "../footer";
-import { Header } from "../header";
-import { Main } from "../main";
+import { Footer } from "../../footer";
+import { Header } from "../../header";
+import { Main } from "../../main";
 import styles from './layout.module.css';
-import { ModalLogin, ModalResetPassword, ModalSignUp } from "../../components";
+import { ModalCart, ModalLogin, ModalResetPassword, ModalSignUp } from "../../../components";
 import { useEffect, useState } from "react";
-import { useGetMe } from "../../hooks";
+import { useGetMe } from "../../../hooks";
 
 export function Layout() {
     useGetMe()
@@ -24,7 +24,16 @@ export function Layout() {
     }, [code])
     return (
         <div className={styles.container}>
-            <Header setIsOpenModal={setIsOpenModal} />
+            <Header
+                setIsOpenCartModal={() => {
+                    setLastPageModal("cart")
+                    setIsOpenModal(true)
+                }}
+                setIsOpenLoginModal={()=>{
+                    setLastPageModal("login")
+                    setIsOpenModal(true)
+                }}    
+            />
             <div>
                 <Main>
                     <Outlet />
@@ -54,12 +63,19 @@ export function Layout() {
                         setIsOpenModal(isOpen)
                     }}
                 />
-                : <ModalResetPassword
+                : lastPageModal === "continueResetPassword" || lastPageModal === "resetPassword"
+                ? <ModalResetPassword
                     isOpen={isOpenModal}
                     onClose={() => setIsOpenModal(false)}
                     lastPageModal={lastPageModal}
                     setLastPageModal={setLastPageModal}
                 />
+                : lastPageModal === "cart"
+                ? <ModalCart 
+                    isOpen={isOpenModal}
+                    onClose={() => setIsOpenModal(false)}
+                />
+                : null
             }
         </div>
     )

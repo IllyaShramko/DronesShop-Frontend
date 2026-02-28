@@ -1,0 +1,31 @@
+.footer{
+	position: relative;
+	width: 100%;
+	height: 210px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	background-color: #CDD5DD;
+	justify-content: space-around;
+}
+.footer img {
+	height: 51.8px;
+}
+.footerBottom{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+	width: 90%;
+    gap: 24px;
+}
+.footerBottom hr {
+    width: 100%;
+    border: 1px #F4F4F4 solid;
+    border-radius: 45px;
+}
+.footerBottom p {
+	color: #9EA0AA;
+	font-size: 16px;
+	text-align: center;
+}

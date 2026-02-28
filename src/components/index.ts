@@ -5,7 +5,7 @@ export { ProductList } from "./products-list"
 export { SmallActionsProduct } from "./small-actions-products"
 export { SimilarProducts } from "./similar-products"
 export { BlocksInfo } from "./blocks-info"
-export { Pagination } from "./pagination/Pagination";
+export { Pagination } from "./pagination";
 export { ContactsInfo } from "./contacts-info"
 export { FormContacts } from "./form-contacts"
 export { ModalLogin } from "./modal-login"
@@ -13,3 +13,4 @@ export { ModalSignUp } from "./modal-sign-up"
 export { ModalResetPassword } from "./modal-reset-password"
 export { CreateAddressForm } from "./create-address-form"
 export { EditAddressForm } from "./edit-address-form"
+export { ModalCart } from "./modal-cart"

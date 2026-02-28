@@ -1,18 +1,9 @@
+import { PaginationProps } from "./paggination.types";
 import styles from "./pagination.module.css";
 
-interface PaginationProps {
-    currentPage: number;
-    totalPages: number;
-    onPageChange: (page: number) => void;
-    goHead: () => void
-}
+export function Pagination(props: PaginationProps) {
 
-export function Pagination({
-    currentPage,
-    totalPages,
-    onPageChange,
-    goHead,
-}: PaginationProps) {
+    const {currentPage, totalPages, onPageChange, goHead} = props
 
     if (totalPages <= 1) {
         return null;

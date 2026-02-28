@@ -1,6 +1,5 @@
 import styles from "./footer.module.css"
-import { ICONS } from "../../shared/icons"
-import { IMAGES } from "../../shared/images"
+import { IMAGES } from "../../../shared/images"
 import { Link } from "react-router-dom"
 
 export function Footer() {

@@ -1,0 +1,89 @@
+
+.noProductsText {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 224px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.noProductsText p {
+    font-size: 20px;
+    color: #6D717F;
+}
+.product {
+    width: 100%;
+    height: 102px;
+    display: flex;
+    gap: 26px;
+    padding: 8px;
+}
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 108px;
+    height: 86px;
+    background-color: #F4F4F4;
+    border-radius: 6px;
+}
+.imageContainer img {
+    height: 86px;
+    max-width: 108px;
+}
+.mainInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.nameAndPrices {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 295px;
+}
+.nameAndPrices h3 {
+    font-size: 24px;
+}
+.price {
+    display: flex;
+    gap: 8px;
+}
+.price p {
+    font-size: 14px;
+    font-weight: 500;
+}
+.priceDiscounted {
+    text-decoration: line-through;
+}
+.priceDiscount {
+    color: #B62D11;
+}
+.countAndControlers {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.countAndControlers button {
+    width: 36px;
+    height: 36px;
+    border-radius: 45px;
+    border: 1.5px #E7E7EA solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    font-size: 24px;
+}
+.countAndControlers p {
+    font-size: 24px;
+    color: #0C122A;
+}
+.binContainer button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
