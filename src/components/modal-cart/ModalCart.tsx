@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useCartContext } from "../../context"
 import { ICONS } from "../../shared/icons"
 import styles from "./modal-cart.module.css"
@@ -7,7 +8,7 @@ import { ModalProductsList } from "./products"
 export function ModalCart(props: ModalCartProps) {
     const { isOpen, onClose } = props
     const {items, totalPrice, discountedPrice} = useCartContext()
-
+    const navigate = useNavigate()
     if (!isOpen) return null
 
     return <>
@@ -44,7 +45,17 @@ export function ModalCart(props: ModalCartProps) {
                 }
                 <hr />
                 <div className={styles.buttonsBottom}>
-                    <button onClick={onClose}>Продовжити покупки</button>
+                    <button className={styles.cancelButton} onClick={onClose}>Продовжити покупки</button>
+                    {
+                        items.length === 0 ? null
+                        : <button onClick={() => {
+                            onClose()
+                            navigate("/make-order")
+                        }} className={styles.submitButton}>
+                            <p>Оформити замовлення</p> 
+                            <ICONS.RightArrowWhite className={styles.arrowWhite}/>
+                        </button>
+                    }
                 </div>
             </div>
         </div>

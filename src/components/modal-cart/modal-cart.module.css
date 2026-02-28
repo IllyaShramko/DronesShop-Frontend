@@ -83,9 +83,20 @@
     text-transform: uppercase;
     font-weight: 500;
     cursor: pointer;
+    gap: 10px;
+}
+.arrowWhite {
+    height: 30px;
+}
+.cancelButton {
     background: none;
     color: #0C122A;
     border: 2px solid #0C122A;
+}
+.submitButton {
+    background: #0C122A;
+    color: white;
+    border: none;
 }
 .prices {
     display: flex;

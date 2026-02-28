@@ -2,6 +2,7 @@
     color: #0C122A;
 }
 .product {
+    position: relative;
     width: 322px;
     height: 363px;
     display: flex;
@@ -10,8 +11,9 @@
     padding: 12px;
     border-radius: 10px;
     cursor: pointer;
+    z-index: 1;
 }
-.product:hover {
+.product:hover{
     background-color: #F4F4F4;
 }
 .imageContainer {
@@ -52,4 +54,24 @@
 }
 .priceDiscount {
     color: #B62D11;
+}
+.buyButton {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    right: 12px;
+    bottom: 12px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #0C122A;
+    cursor: pointer;
+    z-index: 5;
+}
+.buyIcon {
+    width: 16px;
+}
+.product:hover .buyButton{
+    display: flex;
 }
