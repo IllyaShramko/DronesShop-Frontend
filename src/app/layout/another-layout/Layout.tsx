@@ -12,7 +12,7 @@ export function AnotherLayout() {
         <div className={styles.container}>
             <AnotherHeader />
             <div>
-                <Main>
+                <Main isAnother={true}>
                     <Outlet />
                 </Main>
                 <AnotherFooter />

@@ -1,9 +1,8 @@
-import { ICONS } from "../../../shared/icons";
 import styles from "./products.module.css"
 import { useCartContext } from "../../../context";
 
-export function ModalProductsList() {
-    const {items, decrementCount, incrementCount, removeFromCart} = useCartContext()
+export function ProductsListWithoutControllers() {
+    const {items} = useCartContext()
     return <div className={styles.products}>
         {
             items.length === 0
@@ -14,7 +13,6 @@ export function ModalProductsList() {
             : items.map((product, index) => {
                 return <>
                     {index !== 0 && <hr className={styles.hr} />}
-            
                     <div className={styles.product}>
                         <div className={styles.imageContainer}>
                             <img src={product.previewPhoto} />                                
@@ -33,14 +31,7 @@ export function ModalProductsList() {
                                 }
                             </div>
                             <div className={styles.countAndControlers}>
-                                <button onClick={()=>{decrementCount(product.id)}}>-</button>
-                                <p>{product.count}</p>
-                                <button onClick={()=>{incrementCount(product.id)}}>+</button>
-                            </div>
-                            <div className={styles.binContainer}>
-                                <button onClick={()=>{removeFromCart(product.id)}}>
-                                    <ICONS.Bin />
-                                </button>
+                                <p className={styles.disabled}>{product.count}</p>
                             </div>
                         </div>
                     </div>

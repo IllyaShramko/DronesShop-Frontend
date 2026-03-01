@@ -6,7 +6,7 @@ import { ModalCartProps } from "./modal-cart.types"
 import { ModalProductsList } from "./products"
 
 export function ModalCart(props: ModalCartProps) {
-    const { isOpen, onClose } = props
+    const { isOpen, onClose, variant } = props
     const {items, totalPrice, discountedPrice} = useCartContext()
     const navigate = useNavigate()
     if (!isOpen) return null
@@ -33,11 +33,11 @@ export function ModalCart(props: ModalCartProps) {
                                 <p className={styles.totalPrice}>{totalPrice()} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
-                                <p className={styles.namePrice}>Загальна сума</p>
+                                <p className={styles.namePrice}>Заощаджено</p>
                                 <p className={styles.howMuchDiscounted}>- {totalPrice() - discountedPrice()} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
-                                <p className={styles.namePrice}>Загальна сума</p>
+                                <p className={styles.namePrice}>Зі знижкою</p>
                                 <p className={styles.discountPrice}>{discountedPrice()} ₴</p>
                             </div>
                         </div>
@@ -45,15 +45,25 @@ export function ModalCart(props: ModalCartProps) {
                 }
                 <hr />
                 <div className={styles.buttonsBottom}>
-                    <button className={styles.cancelButton} onClick={onClose}>Продовжити покупки</button>
+                    {
+                        variant === "default"
+                        ? <button className={styles.cancelButton} onClick={onClose}>Продовжити покупки</button>
+                        : <button className={styles.cancelButton} onClick={onClose}>Скасувати</button>
+                    }
                     {
                         items.length === 0 ? null
-                        : <button onClick={() => {
+                        : variant === "default" ?
+                            <button onClick={() => {
                             onClose()
                             navigate("/make-order")
                         }} className={styles.submitButton}>
                             <p>Оформити замовлення</p> 
                             <ICONS.RightArrowWhite className={styles.arrowWhite}/>
+                        </button>
+                        : <button onClick={() => {
+                            onClose()
+                        }} className={styles.submitButton}>
+                            <p>Зберегти</p> 
                         </button>
                     }
                 </div>

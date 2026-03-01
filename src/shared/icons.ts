@@ -14,6 +14,11 @@ import { ReactComponent as Map } from "./../assets/svg/Map.svg"
 import { ReactComponent as CloseCross } from "./../assets/svg/close.svg"
 import { ReactComponent as Edit } from "./../assets/svg/edit.svg"
 import { ReactComponent as Bin } from "./../assets/svg/bin.svg"
+import { ReactComponent as newpost } from "../assets/svg/newpost.svg"
+import { ReactComponent as Visa } from "../assets/svg/Visa.svg"
+import { ReactComponent as MasterCard } from "../assets/svg/Mastercard.svg"
+import { ReactComponent as ApplePay } from "../assets/svg/ApplePay.svg"
+import { ReactComponent as GooglePay } from "../assets/svg/GooglePay.svg"
 
 // Same imgs in same row
 export const ICONS = {
@@ -24,5 +29,10 @@ export const ICONS = {
     Telegram, Instagram, Facebook, 
     Phone, Mail, PinMap, Calendar, Map,
     Edit,
-    Bin
+    Bin,
+    newpost,
+    Visa,
+    MasterCard,
+    ApplePay,
+    GooglePay,
 }

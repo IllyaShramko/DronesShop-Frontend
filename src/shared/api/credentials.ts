@@ -36,3 +36,26 @@ export interface EditAddressCredentials {
     apartamentNumber: number;
     entranceNumber: number;
 }
+
+export type MakeOrderCredentials = {
+    userData: {
+        secondName: string
+        firstName: string
+        patronymic: string
+        phoneNumber: string
+        email: string
+        wishes?: string
+    }
+    deliveryData: {
+        city: string
+        warehouse: string
+        street?: string
+    }
+    paymentData: {
+        type: "pay_on_place" | "pay_now"
+    }
+    productsToOrder: {
+        id: number
+        count: number
+    }[]
+}

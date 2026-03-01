@@ -104,3 +104,11 @@
     background: none;
     cursor: pointer;
 }
+.hr {
+    width: 100%;
+    border: 1px #CED0D4 solid;
+    background-color: #CED0D4;
+}
+.disabled {
+    opacity: 0.5;
+}

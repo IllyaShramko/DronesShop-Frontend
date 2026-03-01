@@ -62,7 +62,7 @@
 }
 .body hr {
     width: 100%;
-    border-color: #CED0D4;
+    border: 1px #CED0D4 solid;
     background-color: #CED0D4;
 }
 .buttonsBottom {

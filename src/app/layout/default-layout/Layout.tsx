@@ -35,7 +35,7 @@ export function Layout() {
                 }}    
             />
             <div>
-                <Main>
+                <Main isAnother={false}>
                     <Outlet />
                 </Main>
                 <Footer />
@@ -74,6 +74,7 @@ export function Layout() {
                 ? <ModalCart 
                     isOpen={isOpenModal}
                     onClose={() => setIsOpenModal(false)}
+                    variant="default"
                 />
                 : null
             }

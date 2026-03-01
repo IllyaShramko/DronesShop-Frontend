@@ -15,3 +15,4 @@ export { useSendResetPassword } from "./use-reset-password";
 export { useGetMyAddresses } from "./use-get-my-addresses"
 export { useCreateNewAddress } from "./use-add-new-address"
 export { useEditAddress } from "./use-edit-address-by-id"
+export { useMakeOrder } from "./use-make-order"

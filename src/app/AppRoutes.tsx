@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Layout } from './layout';
-import { AboutPage, CatalogPage, ContactsPage, HomePage, NotFoundPage, ProductPage, UserContactInfoPage } from '../pages';
+import { AnotherLayout, Layout } from './layout';
+import { AboutPage, CatalogPage, CompleteOrder, ContactsPage, HomePage, MakeOrderPage, NotFoundPage, ProductPage, UserContactInfoPage } from '../pages';
 import { CabinetLayout } from './cabinet-layout';
 import { UserAddressesInfoPage } from '../pages/user-addresses-info';
 export function AppRoutes() {
@@ -18,6 +18,10 @@ export function AppRoutes() {
                     <Route path='addresses' element={<UserAddressesInfoPage/>}/>
                     <Route path='orders' element={<h1>Orders</h1>}/>
                 </Route>
+            </Route>
+            <Route path='/' element={<AnotherLayout />}>
+                <Route path='/make-order' element={<MakeOrderPage />} />
+                <Route path='/order-complete' element={<CompleteOrder />} />
             </Route>
         </Routes>
     </BrowserRouter>
