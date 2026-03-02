@@ -1,13 +1,15 @@
+import { useEffect, useState } from 'react'
 import { useCartContext } from '../../../context'
 import { ICONS } from '../../icons'
 import styles from './product-card.module.css'
 import { ProductCardProps } from "./product-card.types"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export function ProductCard(props: ProductCardProps) {
     const {product, subclass} = props
     const {addToCart} = useCartContext()
     const navigate = useNavigate()
+    const [spawn, setSpawn] = useState<boolean>(false)
     function clickButton(action: string) {
         if (action === "buy") {
             addToCart(product)
@@ -15,8 +17,11 @@ export function ProductCard(props: ProductCardProps) {
             navigate(`/products/${product.id}`)
         }
     }
+    useEffect(() => {
+        setSpawn(true)
+    }, [])
 
-    return <div onClick={() => {clickButton("navigate")}} className={`${styles.product} ${subclass}`}>
+    return <div onClick={() => {clickButton("navigate")}} className={`${spawn && styles.productSpawn} ${styles.product} ${subclass}`}>
         <div className={styles.imageContainer}>
             <img className={styles.productImage} src={product.previewPhoto}/>
         </div>

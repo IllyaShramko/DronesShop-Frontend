@@ -3,8 +3,12 @@ import { useEffect } from "react"
 
 export function useGoHead(): () => void {
     function goHead(){
-        window.scrollTo(0, 0)
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' 
+        });
     }
+    
     useEffect(() => {
         goHead()
     }, [])

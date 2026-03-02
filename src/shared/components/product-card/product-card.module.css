@@ -3,18 +3,34 @@
 }
 .product {
     position: relative;
+    transition: all 0.4s ease-in-out;
     width: 322px;
     height: 363px;
     display: flex;
     flex-direction: column;
+    bottom: -50px;
     gap: 25px;
     padding: 12px;
     border-radius: 10px;
     cursor: pointer;
     z-index: 1;
+    opacity: 0.5;
 }
+
+.productSpawn {
+    bottom: 0;
+    opacity: 1;
+}
+
 .product:hover{
     background-color: #F4F4F4;
+    box-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.07), 
+        0 2px 4px rgba(0, 0, 0, 0.07), 
+        0 4px 8px rgba(0, 0, 0, 0.07), 
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07);
+    bottom: 15px;
 }
 .imageContainer {
     position: relative;
@@ -68,10 +84,13 @@
     border: 1.5px solid #0C122A;
     cursor: pointer;
     z-index: 5;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
 }
 .buyIcon {
     width: 16px;
 }
 .product:hover .buyButton{
+    opacity: 1;
     display: flex;
 }
