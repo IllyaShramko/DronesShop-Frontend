@@ -1,0 +1,66 @@
+.order {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    border: 1px solid #E7E7EA;
+}
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.leftSideHeader, .rightSideHeader {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.statusCircle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #CED0D4;
+}
+.canceled {
+    background-color: #B62D11;
+}
+.completed {
+    background-color: #4DBC4B;
+}
+.headerBlockInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 44px;
+}
+.headerBlockInfoUpText {
+    font-size: 14px;
+    color: #9EA0AA;
+}
+.headerBlockInfoDownText {
+    font-size: 14px;
+    color: #0C122A;
+}
+.headerProductIcon {
+    position: relative;
+    height: 50px;
+}
+.headerProductIcon img {
+    height: 50px;
+    width: 50px;
+}
+.arrowBlue {
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+.rotate {
+    transform: rotate(180deg)
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

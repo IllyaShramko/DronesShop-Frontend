@@ -18,7 +18,13 @@ export function ModalCart(props: ModalCartProps) {
                 <ICONS.CloseCross className={styles.closeIcon} />
             </button>
             <div className={styles.header}>
-                <p className={`${styles.headerButton} ${styles.buttonActive}`}>Кошик</p>
+                <p className={`${styles.headerButton} ${styles.buttonActive}`}>
+                    {
+                        variant === "default"
+                        ? "Кошик"
+                        : "Редагувати товари"
+                    }
+                </p>
             </div>
             <div className={styles.body}>
                 <hr />

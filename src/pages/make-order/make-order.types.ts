@@ -35,3 +35,6 @@ export interface Warehouse {
         Sunday: string;
     };
 }
+export interface MakeOrderProps {
+    setOpenModal: () => void
+}
