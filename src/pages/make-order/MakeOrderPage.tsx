@@ -1,7 +1,7 @@
 import Select from 'react-select';
 import { useForm, Controller } from "react-hook-form"
 import styles from "./make-order.module.css"
-import { City, MakeOrderFormState, Warehouse } from "./make-order.types"
+import { City, MakeOrderFormState, MakeOrderProps, Warehouse } from "./make-order.types"
 import { useCartContext, useUserContext } from "../../context"
 import { useEffect, useState } from "react"
 import { ICONS } from "../../shared/icons"
@@ -20,7 +20,7 @@ const POPULAR_CITIES = [
     { Description: 'Запоріжжя', Ref: 'db5c88c6-391c-11dd-90d9-001a92567626' },
 ];
 
-export function MakeOrderPage() {
+export function MakeOrderPage(props: MakeOrderProps) {
     const [cities, setCities] = useState<City[]>([]);
     const [warehouses, setWarehouses] = useState<Warehouse[]>([]);
     const [cityQuery, setCityQuery] = useState("");
@@ -30,6 +30,7 @@ export function MakeOrderPage() {
     const {items, totalPrice, discountedPrice, removeAll} = useCartContext()
     const [makeOrder, {isLoading, error}] = useMakeOrder()
     const navigate = useNavigate()
+    const {setOpenModal} = props
     const {register, handleSubmit, formState, setError, reset, setValue, watch, control} = useForm<MakeOrderFormState>({
         defaultValues: { 
             deliveryType: 'warehouse',
@@ -370,8 +371,8 @@ export function MakeOrderPage() {
                         )}
                     </div>
                 </div>
-                <div className={styles.buttonsLeft}>
-                    <Link to={"/"}>
+                <div className={styles.boottomButtons}>
+                    <Link className={styles.buttonCancel} to={"/"}>
                         Скасувати
                     </Link>
                 </div>
@@ -380,7 +381,7 @@ export function MakeOrderPage() {
         <div className={styles.rightSide}>
             <div className={styles.header}>
                 <p className={`${styles.headerButton} ${styles.buttonActive}`}>Замовлення</p>
-                <button type='button' className={styles.editButton}>
+                <button onClick={setOpenModal} type='button' className={styles.editButton}>
                     <ICONS.Edit className={styles.editIcon} />
                 </button>
             </div>

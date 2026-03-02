@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.subtitle {
+    font-size: 14px;
+    color: #9EA0AA;
+    font-weight: 400;
+}
+.infoText {
+    font-size: 14px;
+    color: #0C122A;
+}
+.containerInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.leftSide {
+    width: 274px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.leftSideContinars {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+.hr {
+    border: 1px #CED0D4 solid;
+}
+.rightSide {
+    width: 509px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.wrappers {
+    display: grid; 
+    justify-content: space-between;
+    grid-template-columns: 50px repeat(3, 120px) 76px;
+}
+.wrappers p {
+    font-size: 12px;
+    color: #6D717F;
+    text-align: center;
+}
+.productsContainer, .products {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.cancelButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 12px 16px;
+    height: 41px;
+    border-radius: 100px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    color: #0C122A;
+    border: 2px solid #0C122A;
+}
+.paymentFullInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.paymentContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 9px;
+}

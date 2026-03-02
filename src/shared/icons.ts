@@ -19,13 +19,16 @@ import { ReactComponent as Visa } from "../assets/svg/Visa.svg"
 import { ReactComponent as MasterCard } from "../assets/svg/Mastercard.svg"
 import { ReactComponent as ApplePay } from "../assets/svg/ApplePay.svg"
 import { ReactComponent as GooglePay } from "../assets/svg/GooglePay.svg"
+import { ReactComponent as arrowBlue80 } from "../assets/svg/arrowBlue80.svg"
+import { ReactComponent as Copy } from "../assets/svg/Copy.svg"
+import { ReactComponent as DeliveryIcon } from "../assets/svg/deliveryIcon.svg"
 
 // Same imgs in same row
 export const ICONS = {
     Purchases, PurchasesBlack,
     User,
     CloseCross,
-    RightArrowBlack, RightArrowWhite,
+    RightArrowBlack, RightArrowWhite, arrowBlue80,
     Telegram, Instagram, Facebook, 
     Phone, Mail, PinMap, Calendar, Map,
     Edit,
@@ -35,4 +38,6 @@ export const ICONS = {
     MasterCard,
     ApplePay,
     GooglePay,
+    DeliveryIcon,
+    Copy
 }

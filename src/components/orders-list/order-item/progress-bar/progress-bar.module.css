@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.header {
+    display: flex;
+    gap: 9px;
+}
+.nameParameter, .valueParameter {
+    font-size: 14px;
+}
+.nameParameter {
+    color: #9EA0AA;
+}
+.valueParameter {
+    color: #0C122A;
+}
+.header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.body {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    display: flex;
+    align-items: center;
+}
+.background {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    border-radius: 45px;
+    background-color: #CDD5DD;
+}
+.progressBar {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-radius: 45px;
+    height: 6px;
+    background-color: #0C122A;
+    transition: width 1s ease-in-out
+
+}
+.canceledBar {
+    background-color: #B62D11;
+}
+.delivery {
+    position: absolute;
+    z-index: 3;
+}
+.point {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px #CDD5DD solid;
+    background-color: #FFFFFF;
+}
+.activatedPoint {
+    border: #0C122A 1px solid;
+}
+.points {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 31px;
+    z-index: 2;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footerText {
+    font-size: 14px;
+    color: #9EA0AA;
+}
+.activated {
+    color: #0C122A;
+}
+.footerText2 {
+    width: 70px;
+    text-align: center;
+}
