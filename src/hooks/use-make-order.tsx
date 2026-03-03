@@ -24,6 +24,7 @@ export function useMakeOrder(): UseMakeOrderContract {
                 },
                 body: JSON.stringify(credentials)
             })
+            console.log(response)
             if (response.status === 400) {
                 const message = "Неправильний формат данных, або їх недостатньо."
                 setError(message)

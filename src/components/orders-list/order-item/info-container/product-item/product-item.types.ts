@@ -1,4 +1,4 @@
-import { Product } from "@shared/types";
+import { Product } from "../../../../../shared/types";
 
 export interface ProductItemProps {
     product: {

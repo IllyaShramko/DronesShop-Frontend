@@ -14,7 +14,7 @@ export function ProgressBarDelivery(props: ProgressBarProps) {
         if (["4", "5", "6", "101"].includes(code)) return 2; 
         if (["44", "45"].includes(code)) return 1;      
         return 0; 
-    };
+    }
     
     const currentStep = getProgressStep(order.status);
     const steps = ["Оформлено", "Збирається", "У дорозі", "Доставлено", "Отримано"];

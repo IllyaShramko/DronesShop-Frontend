@@ -7,7 +7,6 @@
     border-radius: 62px;
     padding: 10px 40px;
     height: 64px;
-    overflow: hidden;
     left: 50%;
     transform: translateX(-50%);
     width: 95vw;
@@ -28,6 +27,7 @@
     background-color: white;
     opacity: 0.3;
     z-index: -1;
+    border-radius: 62px;
 }
 .navigation {
     display: flex;

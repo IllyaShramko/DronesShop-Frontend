@@ -2,15 +2,20 @@ import { InfoContainerProps } from "./info-container.types";
 import styles from "./info-container.module.css"
 import { ProductItem } from "./product-item";
 import { useCancelOrder } from "../../../../hooks";
+import { useGoHead } from "../../../../shared/hooks";
+import { useFormatNumber } from "../../../../shared/hooks/use-format-number";
 
 export function InfoContainer(props: InfoContainerProps) {
     const {order, refreshOrders} = props
     const [cancelOrder, {isLoading, error}] = useCancelOrder()
+    const goHead = useGoHead()
+    const formatNum = useFormatNumber()
 
     async function cancel() {
         const response = await cancelOrder({id: order.id})
         if (response.error === "OK") {
             refreshOrders()
+            goHead()
         } else {
             return
         }
@@ -22,8 +27,13 @@ export function InfoContainer(props: InfoContainerProps) {
             <div className={styles.leftSide}>
                 <div className={styles.leftSideContinars}>
                     <h4 className={styles.subtitle}>Адреса доставки</h4>
-                    <p className={styles.infoText}>Нова Пошта до відділення</p>
-                    <p className={styles.infoText}>{order.deliveryStatus?.warehouse}</p>
+                    {
+                        order.deliveryStatus ? order.deliveryStatus.serviceType === 'WarehouseDoors'
+                            ? <p className={styles.infoText}>Кур'єрська доставка</p>
+                            : <p className={styles.infoText}>Нова Пошта до відділення</p>
+                        : null
+                    }
+                    <p className={styles.infoText}>{order.deliveryStatus?.address}</p>
                 </div>
                 <div className={styles.leftSideContinars}>
                     <h4 className={styles.subtitle}>Отримувач</h4>
@@ -58,15 +68,15 @@ export function InfoContainer(props: InfoContainerProps) {
                     </div>
                     <div className={styles.paymentContainer}>
                         <p className={styles.subtitle}>Загальна сума</p>
-                        <p className={styles.infoText}>{order.totalPrice} ₴</p>
+                        <p className={styles.infoText}>{formatNum(order.totalPrice)} ₴</p>
                     </div>
                     <div className={styles.paymentContainer}>
                         <p className={styles.subtitle}>Заощаджено</p>
-                        <p className={styles.infoText}>{order.totalPrice - order.discountPrice} ₴</p>
+                        <p className={styles.infoText}>{formatNum(order.totalPrice - order.discountPrice)} ₴</p>
                     </div>
                     <div className={styles.paymentContainer}>
                         <p className={styles.subtitle}>Разом</p>
-                        <p className={styles.infoText}>{order.discountPrice} ₴</p>
+                        <p className={styles.infoText}>{formatNum(order.discountPrice)} ₴</p>
                     </div>
                 </div>
                 {

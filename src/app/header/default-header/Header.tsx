@@ -5,11 +5,12 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { HeaderProps } from "./header.types"
 import { useCartContext, useUserContext } from "../../../context"
+import { MessageHeader } from "../../../components"
 
 export function Header(props: HeaderProps) {
     const {token, user} = useUserContext()
     const {items} = useCartContext()
-    const { setIsOpenLoginModal, setIsOpenCartModal } = props
+    const { setIsOpenLoginModal, setIsOpenCartModal, isOpen } = props
 
     return <header className={styles.header}>
         <nav className={styles.navigation}>
@@ -49,5 +50,8 @@ export function Header(props: HeaderProps) {
             
         </div>
         <div className={styles.background}></div>
+        {
+            !isOpen && <MessageHeader />
+        }
     </header>
 }

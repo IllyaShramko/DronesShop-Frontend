@@ -1,4 +1,4 @@
-import { OrderWithTrackingInfo } from "@shared/types";
+import { OrderWithTrackingInfo } from "../../../../shared/types";
 
 export interface InfoContainerProps {
     order: OrderWithTrackingInfo

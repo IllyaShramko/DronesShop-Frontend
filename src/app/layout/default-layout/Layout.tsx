@@ -32,7 +32,8 @@ export function Layout() {
                 setIsOpenLoginModal={()=>{
                     setLastPageModal("login")
                     setIsOpenModal(true)
-                }}    
+                }}
+                isOpen={isOpenModal}
             />
             <div>
                 <Main isAnother={false}>

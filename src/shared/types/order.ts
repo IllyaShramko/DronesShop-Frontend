@@ -42,9 +42,11 @@ export interface NPDeliveryStatus {
     status: string;          
     statusCode: string;      
     warehouse: string;       
-    actualDeliveryDate: string; 
+    actualDeliveryDate: string;
+    serviceType: string; 
     cost: string;       
-    payer: string;      
+    payer: string; 
+    address: string
 }
 
 export interface OrderWithTrackingInfo extends OrderWithProducts {

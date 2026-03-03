@@ -4,10 +4,13 @@ import { ICONS } from "../../shared/icons"
 import styles from "./modal-cart.module.css"
 import { ModalCartProps } from "./modal-cart.types"
 import { ModalProductsList } from "./products"
+import { useFormatNumber } from "../../shared/hooks/use-format-number"
 
 export function ModalCart(props: ModalCartProps) {
     const { isOpen, onClose, variant } = props
     const {items, totalPrice, discountedPrice} = useCartContext()
+    const formatNum = useFormatNumber()
+
     const navigate = useNavigate()
     if (!isOpen) return null
 
@@ -36,15 +39,15 @@ export function ModalCart(props: ModalCartProps) {
                         <div className={styles.prices}>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Загальна сума</p>
-                                <p className={styles.totalPrice}>{totalPrice()} ₴</p>
+                                <p className={styles.totalPrice}>{formatNum(totalPrice())} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Заощаджено</p>
-                                <p className={styles.howMuchDiscounted}>- {totalPrice() - discountedPrice()} ₴</p>
+                                <p className={styles.howMuchDiscounted}>- {formatNum(totalPrice() - discountedPrice())} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Зі знижкою</p>
-                                <p className={styles.discountPrice}>{discountedPrice()} ₴</p>
+                                <p className={styles.discountPrice}>{formatNum(discountedPrice())} ₴</p>
                             </div>
                         </div>
                     </div>

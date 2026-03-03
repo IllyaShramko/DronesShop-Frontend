@@ -33,7 +33,7 @@ export function OrdersList() {
 
     if (isLoading) {
         return <div className={styles.container}>
-            <h3 className={styles.error}>Завантаження...</h3>
+            <h3 className={styles.loadingText}>Завантаження<span className={styles.dots}></span></h3>
         </div>
     } else if (orders.length === 0) {
         return <div className={styles.container}>

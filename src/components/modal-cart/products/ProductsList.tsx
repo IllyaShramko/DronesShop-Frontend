@@ -1,9 +1,12 @@
 import { ICONS } from "../../../shared/icons";
 import styles from "./products.module.css"
 import { useCartContext } from "../../../context";
+import { useFormatNumber } from "../../../shared/hooks/use-format-number";
 
 export function ModalProductsList() {
     const {items, decrementCount, incrementCount, removeFromCart} = useCartContext()
+    const formatNum = useFormatNumber()
+
     return <div className={styles.products}>
         {
             items.length === 0
@@ -24,11 +27,11 @@ export function ModalProductsList() {
                                 <h3>{product.name}</h3>
                                 {product.discount !== 0
                                     ? <div className={styles.price}>
-                                        <p className={styles.priceDiscounted}>{product.price} ₴</p>
-                                        <p className={styles.priceDiscount}>{product.price * (1 - product.discount / 100)} ₴</p>
+                                        <p className={styles.priceDiscounted}>{formatNum(product.price)} ₴</p>
+                                        <p className={styles.priceDiscount}>{formatNum(product.price * (1 - product.discount / 100))} ₴</p>
                                     </div>
                                     : <div className={styles.price}>
-                                        <p>{product.price} ₴</p>
+                                        <p>{formatNum(product.price)} ₴</p>
                                     </div>
                                 }
                             </div>

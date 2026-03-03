@@ -4,12 +4,14 @@ import { ICONS } from '../../icons'
 import styles from './product-card.module.css'
 import { ProductCardProps } from "./product-card.types"
 import { useNavigate } from "react-router-dom"
+import { useFormatNumber } from '../../hooks/use-format-number'
 
 export function ProductCard(props: ProductCardProps) {
     const {product, subclass} = props
     const {addToCart} = useCartContext()
     const navigate = useNavigate()
     const [spawn, setSpawn] = useState<boolean>(false)
+    const formatNum = useFormatNumber()
     function clickButton(action: string) {
         if (action === "buy") {
             addToCart(product)
@@ -29,11 +31,11 @@ export function ProductCard(props: ProductCardProps) {
             <p className={styles.title}>{product.name}</p>
             {product.discount !== 0
                 ? <div className={styles.price}>
-                    <p className={styles.priceDiscounted}>{product.price} ₴</p>
-                    <p className={styles.priceDiscount}>{product.price * (1 - product.discount / 100)} ₴</p>
+                    <p className={styles.priceDiscounted}>{formatNum(product.price)} ₴</p>
+                    <p className={styles.priceDiscount}>{formatNum(product.price * (1 - product.discount / 100))} ₴</p>
                 </div>
                 : <div className={styles.price}>
-                    <p>{product.price} ₴</p>
+                    <p>{formatNum(product.price)} ₴</p>
                 </div>
             }
         </div>

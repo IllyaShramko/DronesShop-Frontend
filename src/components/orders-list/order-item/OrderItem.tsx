@@ -1,3 +1,4 @@
+import { useFormatNumber } from "../../../shared/hooks/use-format-number";
 import { ICONS } from "../../../shared/icons";
 import { OrderWithTrackingInfo } from "../../../shared/types";
 import { InfoContainer } from "./info-container";
@@ -7,6 +8,7 @@ import { ProgressBarDelivery } from "./progress-bar";
 
 export function OrderItem(props: OrderItemProps) {
     const {order, setwhichOpened, whichOpened, index, refreshOrders} = props
+    const formatNum = useFormatNumber()
 
     const getStatusClass = (order: OrderWithTrackingInfo) => {
         const code = order.deliveryStatus?.statusCode;
@@ -49,7 +51,7 @@ export function OrderItem(props: OrderItemProps) {
                     <p className={styles.headerBlockInfoUpText}>
                         Сума замовлення
                     </p>
-                    <p className={styles.headerBlockInfoDownText}>{order.discountPrice}.00 ₴</p>
+                    <p className={styles.headerBlockInfoDownText}>{formatNum(order.discountPrice)}.00 ₴</p>
                 </div>
             </div>
             <div className={styles.rightSideHeader}>

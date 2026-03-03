@@ -9,6 +9,7 @@ import { ProductsListWithoutControllers } from '../../components';
 import { useMakeOrder } from '../../hooks';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL, MakeOrderCredentials } from '../../shared/api';
+import { useFormatNumber } from '../../shared/hooks/use-format-number';
 
 const POPULAR_CITIES = [
     { Description: 'Вінниця', Ref: 'db5c88de-391c-11dd-90d9-001a92567626' },
@@ -30,6 +31,7 @@ export function MakeOrderPage(props: MakeOrderProps) {
     const {items, totalPrice, discountedPrice, removeAll} = useCartContext()
     const [makeOrder, {isLoading, error}] = useMakeOrder()
     const navigate = useNavigate()
+    const formatNum = useFormatNumber()
     const {setOpenModal} = props
     const {register, handleSubmit, formState, setError, reset, setValue, watch, control} = useForm<MakeOrderFormState>({
         defaultValues: { 
@@ -64,6 +66,7 @@ export function MakeOrderPage(props: MakeOrderProps) {
             deliveryData: {
                 city: data.city, 
                 warehouse: data.warehouse,
+                street: data.street
             },
             paymentData: {
                 type: data.payment
@@ -394,11 +397,11 @@ export function MakeOrderPage(props: MakeOrderProps) {
                         <div className={styles.prices}>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Загальна сума</p>
-                                <p className={styles.totalPrice}>{totalPrice()} ₴</p>
+                                <p className={styles.totalPrice}>{formatNum(totalPrice())} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Заощаджено</p>
-                                <p className={styles.howMuchDiscounted}>- {totalPrice() - discountedPrice()} ₴</p>
+                                <p className={styles.howMuchDiscounted}>- {formatNum(totalPrice() - discountedPrice())} ₴</p>
                             </div>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Доставка</p>
@@ -406,7 +409,7 @@ export function MakeOrderPage(props: MakeOrderProps) {
                             </div>
                             <div className={styles.priceContainer}>
                                 <p className={styles.namePrice}>Зі знижкою</p>
-                                <p className={styles.discountPrice}>{discountedPrice()} ₴</p>
+                                <p className={styles.discountPrice}>{formatNum(discountedPrice())} ₴</p>
                             </div>
                         </div>
                     </div>

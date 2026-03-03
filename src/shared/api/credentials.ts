@@ -48,7 +48,7 @@ export type MakeOrderCredentials = {
     }
     deliveryData: {
         city: string
-        warehouse: string
+        warehouse?: string
         street?: string
     }
     paymentData: {

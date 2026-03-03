@@ -15,3 +15,4 @@ export { CreateAddressForm } from "./create-address-form"
 export { EditAddressForm } from "./edit-address-form"
 export { ModalCart, ProductsListWithoutControllers } from "./modal-cart"
 export { OrdersList } from "./orders-list"
+export { MessageHeader } from './message-header'
