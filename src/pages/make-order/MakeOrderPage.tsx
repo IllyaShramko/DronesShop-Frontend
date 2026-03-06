@@ -416,8 +416,12 @@ export function MakeOrderPage(props: MakeOrderProps) {
                 }
                 <hr className={styles.hr} />
                 <div className={styles.buttonsBottom}>
-                    <button type='submit' className={`${styles.submitButton} ${items.length === 0 && styles.disabledButton}`} disabled={items.length === 0 || isLoading}>
-                        <p>Підтвердити замовлення</p> 
+                    <button type='submit' className={`${styles.submitButton} ${(items.length === 0 || isLoading) && styles.disabledButton}`} disabled={items.length === 0 || isLoading}>
+                        {
+                            isLoading
+                            ? <p>Оформлення замовлення</p>
+                            : <p>Підтвердити замовлення</p> 
+                        }
                     </button>
                 </div>
                 {rootError && <p className={styles.error}>{rootError.message}</p>}

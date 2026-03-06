@@ -2,20 +2,17 @@ import { InfoContainerProps } from "./info-container.types";
 import styles from "./info-container.module.css"
 import { ProductItem } from "./product-item";
 import { useCancelOrder } from "../../../../hooks";
-import { useGoHead } from "../../../../shared/hooks";
 import { useFormatNumber } from "../../../../shared/hooks/use-format-number";
 
 export function InfoContainer(props: InfoContainerProps) {
     const {order, refreshOrders} = props
     const [cancelOrder, {isLoading, error}] = useCancelOrder()
-    const goHead = useGoHead()
     const formatNum = useFormatNumber()
 
     async function cancel() {
         const response = await cancelOrder({id: order.id})
         if (response.error === "OK") {
             refreshOrders()
-            goHead()
         } else {
             return
         }

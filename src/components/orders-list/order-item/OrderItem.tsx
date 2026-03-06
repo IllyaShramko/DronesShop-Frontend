@@ -3,11 +3,13 @@ import { ICONS } from "../../../shared/icons";
 import { OrderWithTrackingInfo } from "../../../shared/types";
 import { InfoContainer } from "./info-container";
 import { OrderItemProps } from "./order-item.types";
+import { useGoHead } from "../../../shared/hooks";
 import styles from "./order-itme.module.css"
 import { ProgressBarDelivery } from "./progress-bar";
 
 export function OrderItem(props: OrderItemProps) {
     const {order, setwhichOpened, whichOpened, index, refreshOrders} = props
+    const goHead = useGoHead()
     const formatNum = useFormatNumber()
 
     const getStatusClass = (order: OrderWithTrackingInfo) => {
@@ -31,6 +33,7 @@ export function OrderItem(props: OrderItemProps) {
         <div onClick={() => {
             if (whichOpened === index) {
                 setwhichOpened(null)
+                goHead()
                 return
             }
             setwhichOpened(index)

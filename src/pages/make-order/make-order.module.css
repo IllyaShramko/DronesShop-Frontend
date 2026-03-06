@@ -230,7 +230,7 @@
 }
 .disabledButton {
     cursor: not-allowed;
-    color: #636363;
+    opacity: 0.7;
 }
 .editButton {
     border: none;
