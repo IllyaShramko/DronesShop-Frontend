@@ -26,7 +26,7 @@ export function MakeOrderPage(props: MakeOrderProps) {
     const [warehouses, setWarehouses] = useState<Warehouse[]>([]);
     const [cityQuery, setCityQuery] = useState("");
     const [isCitiesLoading, setIsCitiesLoading] = useState(false);
-    const {user} = useUserContext()
+    const {user, token} = useUserContext()
     const [selectedCity, setSelectedCity] = useState<City | null>(null);
     const {items, totalPrice, discountedPrice, removeAll} = useCartContext()
     const [makeOrder, {isLoading, error}] = useMakeOrder()
@@ -54,6 +54,10 @@ export function MakeOrderPage(props: MakeOrderProps) {
     const selectedPayment = watch("payment");
 
     async function onSubmit(data: MakeOrderFormState) {
+        if (!token || !user) {
+            alert("Будь ласка, перед оформленням замовлення авторизуйтесь!")
+            return
+        }
         const payload: MakeOrderCredentials = {
             userData: {
                 secondName: data.lastName,

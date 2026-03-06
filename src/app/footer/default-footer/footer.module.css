@@ -8,6 +8,7 @@
 	z-index: 1;
 	background-color: #CDD5DD;
 	justify-content: space-around;
+	padding-top: 20px;
 }
 
 .footer::after{
